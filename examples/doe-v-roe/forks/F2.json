@@ -1,0 +1,12 @@
+{
+  "id": "F2",
+  "question": "Demand a jury in the complaint?",
+  "context": "A jury demand costs jury fees later; a bench trial is shorter.",
+  "options": [
+    {"key": "a", "label": "Demand a jury", "cost": "jury fees deposited before trial", "worst_case": "longer trial"},
+    {"key": "b", "label": "Bench trial", "cost": "none now", "worst_case": "no jury on the habitability claim"}
+  ],
+  "expiry": "2026-05-11",
+  "default_if_silent": "none",
+  "opened": "2026-05-04"
+}

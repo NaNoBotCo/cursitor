@@ -1,0 +1,128 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Cursitor//calendar engine//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:rfa-responses-due-2026-09-04@cursitor
+DTSTAMP:20261004T065457Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:[SCHEDULED] Plaintiff's responses to Roe's Requests for Admission\,
+  Set One
+DESCRIPTION:Due Fri Oct 9 2026 — served by mail Sep 4 + 30 days (CCP §20
+ 33.250(a)) = Sun Oct 4\; + 5 days mail within California (§1013(a)) = Fri
+  Oct 9.\nStatus: SCHEDULED — order: received/2026-09-04 Requests for Adm
+ ission Set One from defendant.txt\n11:59 p.m. court time on Fri Oct 9 2026
+  is Sat Oct 10 2026 07:59 in Europe/London.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:mtc-further-rog-2026-09-09@cursitor
+DTSTAMP:20261004T065457Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:[SCHEDULED] Motion to compel further responses: interrogatories
+DESCRIPTION:Due Tue Oct 27 2026 — served by email Sep 9 + 45 days (CCP §
+ 2030.300(c)) = Sat Oct 24\; + 2 court days e-service (§1010.6(a)(3)(B)) =
+  Tue Oct 27.\nStatus: SCHEDULED — order: received/2026-09-09 Proof of Se
+ rvice of responses.pdf\n11:59 p.m. court time on Tue Oct 27 2026 is Wed Oc
+ t 28 2026 06:59 in Europe/London.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:mtc-further-rfp-2026-09-09@cursitor
+DTSTAMP:20261004T065457Z
+DTSTART;VALUE=DATE:20261027
+DTEND;VALUE=DATE:20261028
+SUMMARY:[SCHEDULED] Motion to compel further responses: production
+DESCRIPTION:Due Tue Oct 27 2026 — served by email Sep 9 + 45 days (CCP §
+ 2031.310(c)) = Sat Oct 24\; + 2 court days e-service (§1010.6(a)(3)(B)) =
+  Tue Oct 27.\nStatus: SCHEDULED — order: received/2026-09-09 Proof of Se
+ rvice of responses.pdf\n11:59 p.m. court time on Tue Oct 27 2026 is Wed Oc
+ t 28 2026 06:59 in Europe/London.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cmc-statement@cursitor
+DTSTAMP:20261004T065457Z
+DTSTART;VALUE=DATE:20261028
+DTEND;VALUE=DATE:20261029
+SUMMARY:[SCHEDULED] Case Management Statement (CM-110)
+DESCRIPTION:Due Wed Oct 28 2026 — case management conference Thu Nov 12 
+ − 15 days (Cal. Rules of Court\, rule 3.725(a)) = Wed Oct 28.\nStatus: S
+ CHEDULED — order: received/2026-06-15 Notice of Case Management Conferen
+ ce.pdf\nNote: Rule 3.725 sets the filing day\; the court's own notice of t
+ he conference can set other requirements.\n11:59 p.m. court time on Wed Oc
+ t 28 2026 is Thu Oct 29 2026 06:59 in Europe/London.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cmc@cursitor
+DTSTAMP:20261004T065457Z
+DTSTART;TZID=America/Los_Angeles:20261112T090000
+DTEND;TZID=America/Los_Angeles:20261112T093000
+SUMMARY:[SCHEDULED] Case Management Conference
+LOCATION:Department 17
+DESCRIPTION:Thu Nov 12 2026 at 09:00 — set by the court's Notice of Case 
+ Management Conference dated June 15\, 2026\nStatus: SCHEDULED — order: r
+ eceived/2026-06-15 Notice of Case Management Conference.pdf\nThu Nov 12 20
+ 26 09:00 court time is Thu Nov 12 2026 17:00 in Europe/London.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:mtc-hearing@cursitor
+DTSTAMP:20261004T065457Z
+DTSTART;TZID=America/Los_Angeles:20261203T090000
+DTEND;TZID=America/Los_Angeles:20261203T100000
+SUMMARY:[PROPOSED] Hearing: motion to compel further responses
+LOCATION:Department 17
+DESCRIPTION:Thu Dec 3 2026 at 09:00 — date reserved with the department o
+ n October 1\, 2026\; no notice of hearing served or filed yet\nStatus: PRO
+ POSED — no order or notice on disk yet\nThu Dec 3 2026 09:00 court time 
+ is Thu Dec 3 2026 17:00 in Europe/London.
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:plaintiff-deposition@cursitor
+DTSTAMP:20261004T065457Z
+DTSTART;TZID=America/Los_Angeles:20261028T100000
+DTEND;TZID=America/Los_Angeles:20261028T140000
+SUMMARY:[PROPOSED] Deposition of plaintiff
+LOCATION:Poe & Moe LLP\, 200 Example Plaza\, Suite 12\, Oakland
+DESCRIPTION:Wed Oct 28 2026 at 10:00 — noticed for October 14\, 2026\; co
+ unsel's email of September 30 proposes October 28\nStatus: PROPOSED — no
+  order or notice on disk yet\nFLAG: moved with no signed stipulation or or
+ der named in moved_by\nWed Oct 28 2026 10:00 court time is Wed Oct 28 2026
+  17:00 in Europe/London.
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:mediation@cursitor
+DTSTAMP:20261004T065457Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261021
+SUMMARY:[PROPOSED] Mediation
+DESCRIPTION:Tue Oct 20 2026\nStatus: PROPOSED — no order or notice on dis
+ k yet\nFLAG: bare date: no rule and no arithmetic\n11:59 p.m. court time o
+ n Tue Oct 20 2026 is Wed Oct 21 2026 07:59 in Europe/London.
+STATUS:TENTATIVE
+END:VEVENT
+END:VCALENDAR

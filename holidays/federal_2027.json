@@ -1,0 +1,73 @@
+{
+  "jurisdiction": "federal",
+  "year": 2027,
+  "source": "5 U.S.C. §6103(a)-(b); FRCP 6(a)(6)",
+  "verify": "the district court's own holiday calendar; FRCP 6(a)(6) also counts days declared holidays by the President or Congress",
+  "computed_by": "cursitor/holidays.py",
+  "holidays": [
+    {
+      "date": "2027-01-01",
+      "weekday": "Fri",
+      "name": "New Year's Day"
+    },
+    {
+      "date": "2027-01-18",
+      "weekday": "Mon",
+      "name": "Birthday of Martin Luther King, Jr."
+    },
+    {
+      "date": "2027-02-15",
+      "weekday": "Mon",
+      "name": "Washington's Birthday"
+    },
+    {
+      "date": "2027-05-31",
+      "weekday": "Mon",
+      "name": "Memorial Day"
+    },
+    {
+      "date": "2027-06-18",
+      "weekday": "Fri",
+      "name": "Juneteenth National Independence Day",
+      "observed_for": "2027-06-19"
+    },
+    {
+      "date": "2027-07-05",
+      "weekday": "Mon",
+      "name": "Independence Day",
+      "observed_for": "2027-07-04"
+    },
+    {
+      "date": "2027-09-06",
+      "weekday": "Mon",
+      "name": "Labor Day"
+    },
+    {
+      "date": "2027-10-11",
+      "weekday": "Mon",
+      "name": "Columbus Day"
+    },
+    {
+      "date": "2027-11-11",
+      "weekday": "Thu",
+      "name": "Veterans Day"
+    },
+    {
+      "date": "2027-11-25",
+      "weekday": "Thu",
+      "name": "Thanksgiving Day"
+    },
+    {
+      "date": "2027-12-24",
+      "weekday": "Fri",
+      "name": "Christmas Day",
+      "observed_for": "2027-12-25"
+    },
+    {
+      "date": "2027-12-31",
+      "weekday": "Fri",
+      "name": "New Year's Day",
+      "observed_for": "2028-01-01"
+    }
+  ]
+}

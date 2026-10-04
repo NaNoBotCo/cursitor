@@ -1,0 +1,48 @@
+{
+  "name": "Doe v. Roe Holdings",
+  "short": "doe-v-roe",
+  "fictional": true,
+  "jurisdiction": "ca",
+  "format": "ca",
+  "court_tz": "America/Los_Angeles",
+  "reader_tz": "Europe/London",
+  "case_number": "26CV000000",
+  "court": "Superior Court of California, County of Alameda",
+  "department": "17",
+  "parties": {
+    "plaintiff": ["Jane Doe"],
+    "defendant": ["Roe Holdings, LLC"]
+  },
+  "counsel": {
+    "defendant": "Morgan Poe, Poe & Moe LLP, 200 Example Plaza, Suite 12, Oakland, CA 94600, mpoe@poe-moe.example"
+  },
+  "identifiers": ["26CV000000", "Jane Doe", "Roe Holdings", "100 Sample Way"],
+  "docket_url": "",
+  "caption": {
+    "attorney_block": [
+      "JANE DOE",
+      "100 Sample Way, Apt. 4",
+      "Oakland, CA 94600",
+      "Telephone: (555) 010-0100",
+      "Email: jane.doe@example.com",
+      "",
+      "Plaintiff in Pro Per"
+    ],
+    "court": ["SUPERIOR COURT OF THE STATE OF CALIFORNIA", "COUNTY OF ALAMEDA"],
+    "parties_left": [
+      "JANE DOE,",
+      "",
+      "                    Plaintiff,",
+      "",
+      "          v.",
+      "",
+      "ROE HOLDINGS, LLC, a California limited",
+      "liability company; and DOES 1 through 10,",
+      "inclusive,",
+      "",
+      "                    Defendants."
+    ],
+    "case_number": "Case No. 26CV000000",
+    "signer": {"name": "JANE DOE", "role": "Plaintiff in Pro Per"}
+  }
+}

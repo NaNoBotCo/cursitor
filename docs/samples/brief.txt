@@ -1,0 +1,30 @@
+MORNING BRIEF — Doe v. Roe Holdings — Mon Oct 5 2026
+
+DUE TODAY
+  (none)
+
+NEXT 7 DAYS (through Mon Oct 12)
+  [SCHEDULED] Plaintiff's responses to Roe's Requests for Admission, Set One (in 4 days): Due Fri Oct 9 2026 — served by mail Sep 4 + 30 days (CCP §2033.250(a)) = Sun Oct 4; + 5 days mail within California (§1013(a)) = Fri Oct 9.
+
+CLOCKS RUNNING
+  [SCHEDULED] Motion to compel further responses: interrogatories (in 22 days): Due Tue Oct 27 2026 — served by email Sep 9 + 45 days (CCP §2030.300(c)) = Sat Oct 24; + 2 court days e-service (§1010.6(a)(3)(B)) = Tue Oct 27.
+  [SCHEDULED] Motion to compel further responses: production (in 22 days): Due Tue Oct 27 2026 — served by email Sep 9 + 45 days (CCP §2031.310(c)) = Sat Oct 24; + 2 court days e-service (§1010.6(a)(3)(B)) = Tue Oct 27.
+  [SCHEDULED] Case Management Statement (CM-110) (in 23 days): Due Wed Oct 28 2026 — case management conference Thu Nov 12 − 15 days (Cal. Rules of Court, rule 3.725(a)) = Wed Oct 28.
+
+LATER
+  [PROPOSED] Mediation (in 15 days): Tue Oct 20 2026
+  [PROPOSED] Deposition of plaintiff (in 23 days): Wed Oct 28 2026 at 10:00 — noticed for October 14, 2026; counsel's email of September 30 proposes October 28
+  [SCHEDULED] Case Management Conference (in 38 days): Thu Nov 12 2026 at 09:00 — set by the court's Notice of Case Management Conference dated June 15, 2026
+  [PROPOSED] Hearing: motion to compel further responses (in 59 days): Thu Dec 3 2026 at 09:00 — date reserved with the department on October 1, 2026; no notice of hearing served or filed yet
+
+PROPOSED — no order, notice or proof of service on disk yet
+  Mediation — Tue Oct 20 2026
+  Deposition of plaintiff — Wed Oct 28 2026
+  Hearing: motion to compel further responses — Thu Dec 3 2026
+
+FLAGGED
+  Deposition of plaintiff: moved with no signed stipulation or order named in moved_by
+  Mediation: bare date: no rule and no arithmetic
+
+OPEN FORKS
+  F1 File the motion to compel further responses now, or send one more meet-and-confer letter first? — expires 2026-10-16 (in 11 days); if silent: no default — yours

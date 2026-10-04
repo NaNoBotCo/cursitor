@@ -1,0 +1,9 @@
+EXHIBIT INDEX
+
+Bates prefix DOE. Built 2026-10-04. Titles are read from the printed text of each exhibit's first page. Slip sheets: pleading, not numbered.
+
+Exhibit 1 · DOE000001–DOE000002 · 2 pages · RESIDENTIAL LEASE AGREEMENT · source file: 1 Lease agreement.pdf
+Exhibit 2 · DOE000003–DOE000003 · 1 page, 1 OCR'd · EXAMPLE AIR TESTING CO. — MOLD INSPECTION REPORT · source file: 2 Inspection report (scan).pdf
+Exhibit 3 · DOE000004–DOE000004 · 1 page · EMAIL CORRESPONDENCE: WATER LEAK, APARTMENT 4 · source file: 3 Email chain.pdf
+
+3 exhibits, 4 pages, DOE000001–DOE000004.

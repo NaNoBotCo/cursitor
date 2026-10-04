@@ -1,0 +1,21 @@
+{
+  "description": "Cursitor: check drafts against muzzles.txt and the voice lists after each write; run the identifier guard before a git push.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {"type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/cursitor\" hook post-write", "timeout": 30}
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {"type": "command", "command": "\"${CLAUDE_PLUGIN_ROOT}/scripts/cursitor\" hook pre-bash", "timeout": 60}
+        ]
+      }
+    ]
+  }
+}

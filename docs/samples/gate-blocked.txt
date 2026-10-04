@@ -1,0 +1,35 @@
+GATE — drafts/2026-10-02 meet-and-confer letter.txt
+Subject terms: inspection report, mold inspection, supplemental, example, burden, leak, interrogatory 4, request 3, request 4
+Record searched: served/, received/, notes/
+
+served/2026-08-05 Requests for Production Set One.txt:25  [inspection report, mold inspection, example, request 4]
+    REQUEST FOR PRODUCTION NO. 4: All mold inspection reports concerning the APARTMENT, including any report prepared by Example Air Testing Co.
+
+received/2026-09-09 Responses to Requests for Production Set One.txt:18  [inspection report, mold inspection, request 4]
+    RESPONSE TO REQUEST FOR PRODUCTION NO. 4: After a diligent search and a reasonable inquiry, Responding Party is unable to comply with this request because no mold inspection report concerning the APARTMENT is in its possession, custody or control.
+
+received/2026-09-09 Responses to Special Interrogatories Set One.txt:34  [inspection report, mold inspection, example]
+    RESPONSE TO SPECIAL INTERROGATORY NO. 7: Objection: overbroad. Without waiving the objection, Responding Party responds: Responding Party received one written mold inspection report concerning the APARTMENT, prepared by Example Air Testing Co., dated March 3, 2026, and delivered to Responding Party by email on March 3, 2026.
+
+notes/2026-09-12 triage of responses.txt:5  [inspection report, mold inspection]
+    RFP 4 response says no mold inspection report is in Roe's possession, custody or control. That cannot stand next to the SROG 7 response.
+
+served/2026-08-05 Special Interrogatories Set One.txt:42  [inspection report, mold inspection]
+    SPECIAL INTERROGATORY NO. 7: Identify each written mold inspection report concerning the APARTMENT that YOU received, by author, date, and date of receipt.
+
+received/2026-09-04 Requests for Admission Set One from defendant.txt:15  [leak, request 3]
+    REQUEST FOR ADMISSION NO. 3: Admit that the leak came from the unit above the APARTMENT.
+
+received/2026-09-09 Responses to Requests for Production Set One.txt:15  [burden, request 3]
+    RESPONSE TO REQUEST FOR PRODUCTION NO. 3: Objection: overbroad and unduly burdensome. Responding Party will not produce documents in response to this request.
+
+served/2026-08-05 Requests for Production Set One.txt:22  [leak, request 3]
+    REQUEST FOR PRODUCTION NO. 3: All communications between YOU and any plumber or contractor concerning the LEAK.
+
+served/2026-08-05 Special Interrogatories Set One.txt:33  [leak, interrogatory 4]
+    SPECIAL INTERROGATORY NO. 4: Identify each plumber or contractor YOU called about the LEAK.
+
+received/2026-09-09 Responses to Special Interrogatories Set One.txt:25  [interrogatory 4]
+    RESPONSE TO SPECIAL INTERROGATORY NO. 4: The building's on-call plumber. Responding Party will supplement with the plumber's name.
+
+BLOCKED — read the 10 passage(s) above, then run again with --read to clear this draft.

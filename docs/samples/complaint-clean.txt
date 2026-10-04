@@ -1,0 +1,114 @@
+JANE DOE
+100 Sample Way, Apt. 4
+Oakland, CA 94600
+Telephone: (555) 010-0100
+Email: jane.doe@example.com
+Plaintiff in Pro Per
+
+               SUPERIOR COURT OF THE STATE OF CALIFORNIA
+                       COUNTY OF ALAMEDA
+
+JANE DOE,                              )  Case No. 26CV000000
+                                       )
+              Plaintiff,               )  COMPLAINT FOR DAMAGES
+                                       )
+      v.                               )  1. Breach of Lease
+                                       )  2. Breach of the Implied
+ROE HOLDINGS, LLC, a California        )     Warranty of Habitability
+limited liability company; and DOES   )  3. Violation of Civil Code
+1 through 10, inclusive,               )     section 1950.5
+                                       )  4. Negligence
+              Defendants.              )
+_______________________________________)  DEMAND FOR JURY TRIAL
+
+Plaintiff Jane Doe alleges as follows:
+
+GENERAL ALLEGATIONS
+
+1. Plaintiff is an individual who, at all times relevant to this complaint, resided in the City of Oakland, County of Alameda, California.
+
+2. Defendant Roe Holdings, LLC (“Roe Holdings”) is a California limited liability company that owns and manages the residential building at 100 Sample Way, Oakland, California (the “Building”).
+
+3. Plaintiff does not know the true names of the defendants sued as Does 1 through 10 and sues them by fictitious names under Code of Civil Procedure section 474. Plaintiff will amend this complaint when their names are learned.
+
+4. On or about March 1, 2025, Plaintiff and Roe Holdings signed a written lease for Apartment 4 of the Building (the “Lease”) for a term of one year at a monthly rent of $2,150. Plaintiff paid a security deposit of $3,200. A copy of the Lease is attached as Exhibit 1.
+
+5. Paragraph 12 of the Lease provides:
+
+    Landlord shall keep the premises in a condition fit for occupancy and shall make all repairs needed to keep the roof, plumbing, heating and walls in good working order, within a reasonable time after written notice from Tenant.
+
+6. On November 18, 2025, water began entering Apartment 4 through the bathroom ceiling. Plaintiff gave Roe Holdings written notice by email that day. A copy of the email chain is attached as Exhibit 3.
+
+7. Roe Holdings did not repair the leak. By January 2026, mold covered parts of the bathroom ceiling and the bedroom wall shared with the bathroom.
+
+8. On or about March 3, 2026, an inspector from Example Air Testing Co. inspected Apartment 4 at Roe Holdings’ request and found elevated mold spore counts in the bathroom and bedroom. A copy of the inspection report is attached as Exhibit 2.
+
+9. Plaintiff moved out on April 30, 2026, after the leak and mold made the bedroom unusable. Plaintiff left the apartment clean and returned the keys that day.
+
+10. Roe Holdings did not return any part of the security deposit and did not provide an itemized statement of deductions within 21 days after Plaintiff moved out, as Civil Code section 1950.5(g) requires.
+
+FIRST CAUSE OF ACTION
+
+(Breach of Lease — Against All Defendants)
+
+11. Plaintiff incorporates paragraphs 1 through 10.
+
+12. Plaintiff performed all conditions of the Lease required of her, except those excused by Defendants’ conduct.
+
+13. Roe Holdings breached paragraph 12 of the Lease by failing to repair the leak within a reasonable time after written notice.
+
+14. As a result, Plaintiff suffered damages, including rent paid for an apartment that was partly unusable, moving costs, and damaged personal property, in an amount to be proven at trial.
+
+SECOND CAUSE OF ACTION
+
+(Breach of the Implied Warranty of Habitability — Against All Defendants)
+
+15. Plaintiff incorporates paragraphs 1 through 14.
+
+16. The Lease carried an implied warranty of habitability. The water intrusion and mold made Apartment 4 untenantable within the meaning of Civil Code section 1941.1 and Health and Safety Code section 17920.3.
+
+17. Roe Holdings had notice of the conditions no later than November 18, 2025, and did not correct them within a reasonable time. Plaintiff did not use repair-and-deduct self-help under Civil Code section 1942.
+
+18. Plaintiff’s damages include the reduced rental value of Apartment 4 from November 18, 2025, through April 30, 2026.
+
+THIRD CAUSE OF ACTION
+
+(Violation of Civil Code Section 1950.5 — Against Roe Holdings)
+
+19. Plaintiff incorporates paragraphs 1 through 18.
+
+20. Roe Holdings kept the $3,200 security deposit without serving an itemized statement within 21 days after Plaintiff moved out.
+
+21. Roe Holdings kept the deposit in bad faith. Under Civil Code section 1950.5(l), Plaintiff seeks the deposit and statutory damages of up to twice the amount of the deposit.
+
+FOURTH CAUSE OF ACTION
+
+(Negligence — Against All Defendants)
+
+22. Plaintiff incorporates paragraphs 1 through 21.
+
+23. Roe Holdings owed Plaintiff a duty to use reasonable care in maintaining the Building.
+
+24. Roe Holdings breached that duty by leaving a known leak unrepaired for more than five months.
+
+25. The breach damaged Plaintiff’s furniture, clothing and a laptop computer, in an amount to be proven at trial.
+
+PRAYER FOR RELIEF
+
+WHEREFORE, Plaintiff prays for judgment against Defendants as follows:
+
+1. For general and special damages in an amount to be proven at trial;
+
+2. For return of the $3,200 security deposit and statutory damages under Civil Code section 1950.5(l);
+
+3. For costs of suit; and
+
+4. For such other relief as the Court finds just.
+
+DEMAND FOR JURY TRIAL
+
+Plaintiff demands a trial by jury on all causes of action so triable.
+
+Dated: May 11, 2026    ______________________________
+JANE DOE
+Plaintiff in Pro Per

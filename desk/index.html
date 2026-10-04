@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cursitor Desk</title>
+<style>
+:root {
+  --bg: #fbfaf7; --fg: #111111; --muted: #3d3d3d; --line: #1a1a1a;
+  --btn: #ffffff; --btn-fg: #111111; --accent: #0b4fa8; --accent-fg: #ffffff;
+  --panel: #ffffff; --ok: #0d6b2f; --bad: #9b1c1c; --field: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101113; --fg: #f4f4f2; --muted: #d0d0cc; --line: #e8e8e4;
+    --btn: #1c1d20; --btn-fg: #f4f4f2; --accent: #7fb2ff; --accent-fg: #0b0c0e;
+    --panel: #17181b; --ok: #6fdc8c; --bad: #ff8a8a; --field: #0f1012;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101113; --fg: #f4f4f2; --muted: #d0d0cc; --line: #e8e8e4;
+  --btn: #1c1d20; --btn-fg: #f4f4f2; --accent: #7fb2ff; --accent-fg: #0b0c0e;
+  --panel: #17181b; --ok: #6fdc8c; --bad: #ff8a8a; --field: #0f1012;
+}
+* { box-sizing: border-box; }
+html { font-size: 22px; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.45;
+}
+main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+header { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+h1 { font-size: 2rem; margin: 0 0 4px; letter-spacing: -0.01em; }
+.sub { color: var(--muted); margin: 0; font-size: 1rem; overflow-wrap: anywhere; }
+.theme { font-size: 1rem; background: none; color: var(--fg); border: 2px solid var(--line); border-radius: 10px; padding: 8px 14px; cursor: pointer; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 28px 0; }
+.big {
+  font-size: 1.35rem; font-weight: 700; text-align: left; padding: 26px 24px; min-height: 120px;
+  background: var(--btn); color: var(--btn-fg); border: 3px solid var(--line); border-radius: 16px; cursor: pointer;
+}
+.big small { display: block; font-size: 1rem; font-weight: 400; color: var(--muted); margin-top: 6px; }
+.big:hover, .big:focus-visible { outline: 4px solid var(--accent); outline-offset: 2px; }
+.big[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.big[aria-pressed="true"] small { color: var(--accent-fg); }
+section.panel { display: none; background: var(--panel); border: 3px solid var(--line); border-radius: 16px; padding: 24px; }
+section.panel.on { display: block; }
+h2 { font-size: 1.5rem; margin: 0 0 12px; }
+label { display: block; font-weight: 700; margin: 16px 0 6px; }
+textarea, input, select {
+  width: 100%; font-size: 1rem; padding: 12px; border: 2px solid var(--line); border-radius: 10px;
+  background: var(--field); color: var(--fg); font-family: inherit;
+}
+textarea { min-height: 220px; font-family: ui-monospace, Menlo, monospace; font-size: 0.9rem; }
+.row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.go {
+  margin-top: 18px; font-size: 1.15rem; font-weight: 700; padding: 16px 28px; border-radius: 12px;
+  background: var(--accent); color: var(--accent-fg); border: 3px solid var(--accent); cursor: pointer;
+}
+.go.alt { background: transparent; color: var(--fg); border-color: var(--line); }
+pre.out {
+  white-space: pre-wrap; word-break: break-word; background: var(--field); border: 2px solid var(--line);
+  border-radius: 10px; padding: 16px; font-size: 0.9rem; min-height: 3em; margin-top: 16px;
+}
+a { color: var(--accent); font-weight: 700; }
+.msg { margin-top: 12px; font-weight: 700; }
+.msg.bad { color: var(--bad); }
+.msg.ok { color: var(--ok); }
+ul.files { list-style: none; padding: 0; margin: 12px 0 0; }
+ul.files li { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 12px 0; border-bottom: 2px solid var(--line); }
+ul.files li span { flex: 1 1 260px; word-break: break-all; }
+ul.files button { font-size: 0.95rem; padding: 10px 14px; border-radius: 10px; border: 2px solid var(--line); background: var(--btn); color: var(--fg); cursor: pointer; }
+@media (max-width: 520px) { html { font-size: 20px; } .big { min-height: 96px; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>Cursitor Desk</h1>
+      <p class="sub">Runs on this Mac at 127.0.0.1. Matter: <span id="matter">{{MATTER}}</span></p>
+    </div>
+    <button class="theme" id="theme" type="button">Light / dark</button>
+  </header>
+
+  <div class="grid" role="group" aria-label="What to do">
+    <button class="big" data-panel="paste" aria-pressed="false">Paste a lawsuit<small>Fix text copied from a PDF or a court site</small></button>
+    <button class="big" data-panel="pdfs" aria-pressed="false">Add PDFs<small>Exhibits: numbered, stamped, one package</small></button>
+    <button class="big" data-panel="plead" aria-pressed="false">Make pleading paper<small>Text in, court-ready PDF out</small></button>
+    <button class="big" data-panel="due" aria-pressed="false">What's due<small>Dates, each with its arithmetic</small></button>
+    <button class="big" data-panel="ask" aria-pressed="false">Ask a PDF<small>Find a passage by page and line</small></button> <!-- stylecheck: allow (button name) -->
+    <button class="big" data-panel="send" aria-pressed="false">Send<small>Show in Finder, copy, or a Mail draft</small></button>
+  </div>
+
+  <section class="panel" id="paste">
+    <h2>Paste a lawsuit</h2>
+    <label for="paste-in">Paste the text here</label>
+    <textarea id="paste-in" placeholder="Paste text copied from a PDF, Word or a court website"></textarea>
+    <label><input type="checkbox" id="paste-ascii" style="width:auto"> Straight quotes instead of curly ones</label>
+    <button class="go" id="paste-go">Clean it up</button>
+    <div class="msg" id="paste-msg"></div>
+    <pre class="out" id="paste-out"></pre>
+  </section>
+
+  <section class="panel" id="pdfs">
+    <h2>Add PDFs</h2>
+    <p>Files are ordered by the number at the front of each name. Pages with no text get OCR.</p>
+    <label for="pdf-files">PDFs or pictures</label>
+    <input type="file" id="pdf-files" accept=".pdf,.jpg,.jpeg,.png,.tif,.tiff" multiple>
+    <div class="row">
+      <div><label for="pdf-prefix">Bates prefix</label><input id="pdf-prefix" value="EX"></div>
+      <div><label for="pdf-start">First number</label><input id="pdf-start" type="number" value="1" min="1"></div>
+      <div><label for="pdf-slip">Slip sheets</label>
+        <select id="pdf-slip"><option value="pleading">On pleading paper</option><option value="plain">Plain</option></select></div>
+    </div>
+    <button class="go" id="pdf-go">Build the package</button>
+    <div class="msg" id="pdf-msg"></div>
+    <pre class="out" id="pdf-out"></pre>
+  </section>
+
+  <section class="panel" id="plead">
+    <h2>Make pleading paper</h2>
+    <label for="plead-in">Text, one paragraph per line</label>
+    <textarea id="plead-in" placeholder="1. Plaintiff is ..."></textarea>
+    <div class="row">
+      <div><label for="plead-title">Document title</label><input id="plead-title" placeholder="DECLARATION OF ..."></div>
+      <div><label for="plead-format">Paper</label>
+        <select id="plead-format"><option value="ca">California pleading paper</option><option value="federal">Federal pleading paper</option><option value="letter">Plain letter</option></select></div>
+      <div><label for="plead-signed">Signed as (blank line if empty)</label><input id="plead-signed" placeholder="Jane Doe"></div>
+    </div>
+    <div id="plead-caption">
+      <label for="plead-case">Case number</label><input id="plead-case" placeholder="Case No. ______">
+      <label for="plead-court">Court (one line each)</label><textarea id="plead-court" style="min-height:90px">SUPERIOR COURT OF THE STATE OF CALIFORNIA
+COUNTY OF ______________</textarea>
+      <label for="plead-parties">Parties box (one line each)</label><textarea id="plead-parties" style="min-height:140px">PLAINTIFF NAME,
+          Plaintiff,
+     v.
+DEFENDANT NAME,
+          Defendant.</textarea>
+      <label for="plead-sender">Your name block, top left (one line each)</label><textarea id="plead-sender" style="min-height:120px">YOUR NAME
+Street address
+City, CA ZIP
+Plaintiff in Pro Per</textarea>
+    </div>
+    <button class="go" id="plead-go">Make the PDF</button>
+    <div class="msg" id="plead-msg"></div>
+  </section>
+
+  <section class="panel" id="due">
+    <h2>What's due</h2>
+    <button class="go alt" id="due-brief">Show this matter's dates</button>
+    <pre class="out" id="due-out"></pre>
+    <h2 style="margin-top:28px">Count a deadline</h2>
+    <div class="row">
+      <div><label for="due-served">Served on</label><input id="due-served" type="date"></div>
+      <div><label for="due-method">Served by</label>
+        <select id="due-method">
+          <option value="email">Email (e-service)</option><option value="mail">Mail in California</option>
+          <option value="mail_out_of_state">Mail from outside California</option><option value="overnight">Overnight delivery</option>
+          <option value="personal">Hand delivery</option>
+        </select></div>
+    </div>
+    <label for="due-rule">What was served</label>
+    <select id="due-rule"></select>
+    <button class="go" id="due-go">Count it</button>
+    <pre class="out" id="due-line"></pre>
+    <h2 style="margin-top:28px">Count back from a hearing</h2>
+    <div class="row">
+      <div><label for="due-hearing">Hearing date</label><input id="due-hearing" type="date"></div>
+      <div><label for="due-sched">Court</label><select id="due-sched"><option value="ca">California (CCP §1005)</option><option value="fed.cdcal">Central District of California</option></select></div>
+    </div>
+    <button class="go" id="due-sched-go">Count back</button>
+    <pre class="out" id="due-sched-out"></pre>
+  </section>
+
+  <section class="panel" id="ask">
+    <h2>Ask a PDF</h2> <!-- stylecheck: allow (button name) -->
+    <label for="ask-file">The PDF</label>
+    <input type="file" id="ask-file" accept=".pdf">
+    <label for="ask-q">Words to find</label>
+    <input id="ask-q" placeholder="security deposit itemized statement">
+    <button class="go" id="ask-go">Find it</button>
+    <pre class="out" id="ask-out"></pre>
+  </section>
+
+  <section class="panel" id="send">
+    <h2>Send</h2>
+    <p>Recent results. Mail opens a new message with the file attached; you address it and press Send.</p>
+    <button class="go alt" id="send-refresh">Refresh the list</button>
+    <ul class="files" id="send-list"></ul>
+    <div class="msg" id="send-msg"></div>
+  </section>
+</main>
+<script>
+(function () {
+  "use strict";
+  var TOKEN = "{{TOKEN}}";
+  var job = "";
+  var $ = function (id) { return document.getElementById(id); };
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("cursitor-theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  $("theme").addEventListener("click", function () {
+    var dark = root.getAttribute("data-theme") === "dark" ||
+      (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("cursitor-theme", next); } catch (e) {}
+  });
+  if (!$("matter").textContent.trim()) $("matter").textContent = "none";
+  else $("plead-caption").style.display = "none";
+
+  function api(path, body) {
+    return fetch(path, {
+      method: body === undefined ? "GET" : "POST",
+      headers: { "Content-Type": "application/json", "X-Cursitor-Token": TOKEN },
+      body: body === undefined ? undefined : JSON.stringify(body)
+    }).then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || r.status); return j; }); });
+  }
+  function upload(file) {
+    return fetch("/api/upload?job=" + encodeURIComponent(job) + "&name=" + encodeURIComponent(file.name), {
+      method: "POST", headers: { "X-Cursitor-Token": TOKEN }, body: file
+    }).then(function (r) { return r.json(); }).then(function (j) { job = j.job; return j; });
+  }
+  function say(id, text, bad) { var el = $(id); el.textContent = text; el.className = "msg " + (bad ? "bad" : "ok"); }
+  function link(href, text) { var a = document.createElement("a"); a.href = href; a.textContent = text; a.target = "_blank"; return a; }
+
+  document.querySelectorAll(".big").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".big").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      document.querySelectorAll(".panel").forEach(function (p) { p.classList.remove("on"); });
+      b.setAttribute("aria-pressed", "true");
+      var p = $(b.getAttribute("data-panel"));
+      p.classList.add("on");
+      p.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (b.getAttribute("data-panel") === "send") refresh();
+    });
+  });
+
+  $("paste-go").addEventListener("click", function () {
+    say("paste-msg", "Working…");
+    api("/api/paste", { job: job, text: $("paste-in").value, ascii_quotes: $("paste-ascii").checked }).then(function (j) {
+      job = j.job; $("paste-out").textContent = j.text;
+      var m = $("paste-msg"); m.textContent = "Done. "; m.className = "msg ok"; m.appendChild(link(j.download, "Download the clean text"));
+      $("plead-in").value = j.text;
+    }).catch(function (e) { say("paste-msg", e.message, true); });
+  });
+
+  $("pdf-go").addEventListener("click", function () {
+    var files = Array.prototype.slice.call($("pdf-files").files);
+    if (!files.length) { say("pdf-msg", "Choose one or more PDFs first.", true); return; }
+    say("pdf-msg", "Uploading " + files.length + " file(s)…");
+    files.reduce(function (p, f) { return p.then(function () { return upload(f); }); }, Promise.resolve()).then(function () {
+      say("pdf-msg", "Building: OCR, slip sheets, Bates numbers…");
+      return api("/api/exhibits", { job: job, prefix: $("pdf-prefix").value, start: $("pdf-start").value, slip: $("pdf-slip").value });
+    }).then(function (j) {
+      $("pdf-out").textContent = j.index;
+      var m = $("pdf-msg"); m.textContent = "Done. "; m.className = "msg ok";
+      m.appendChild(link(j.package, "Open the package")); m.appendChild(document.createTextNode(" · ")); m.appendChild(link(j.index_url, "Open the index"));
+    }).catch(function (e) { say("pdf-msg", e.message, true); });
+  });
+
+  $("plead-go").addEventListener("click", function () {
+    say("plead-msg", "Working…");
+    api("/api/plead", {
+      job: job, text: $("plead-in").value, title: $("plead-title").value, format: $("plead-format").value,
+      signed: $("plead-signed").value, case_no: $("plead-case").value, court: $("plead-court").value,
+      parties: $("plead-parties").value, sender: $("plead-sender").value,
+      signer: ($("plead-sender").value.split("\n")[0] || ""), role: "Plaintiff in Pro Per"
+    }).then(function (j) {
+      job = j.job; var m = $("plead-msg");
+      m.textContent = "Done: " + j.pages + " page(s). " + (j.note ? j.note + ". " : ""); m.className = "msg ok";
+      m.appendChild(link(j.download, "Open the PDF"));
+    }).catch(function (e) { say("plead-msg", e.message, true); });
+  });
+
+  api("/api/rules").then(function (j) {
+    j.rules.forEach(function (r) {
+      var o = document.createElement("option"); o.value = r.id; o.textContent = r.label + " (" + r.cite + ")";
+      $("due-rule").appendChild(o);
+    });
+  });
+  $("due-brief").addEventListener("click", function () {
+    api("/api/brief").then(function (j) { $("due-out").textContent = j.text; }).catch(function (e) { $("due-out").textContent = e.message; });
+  });
+  $("due-go").addEventListener("click", function () {
+    api("/api/due", { served: $("due-served").value, method: $("due-method").value, rule: $("due-rule").value })
+      .then(function (j) { $("due-line").textContent = j.line + (j.notes.length ? "\n\n" + j.notes.join("\n") : ""); })
+      .catch(function (e) { $("due-line").textContent = e.message; });
+  });
+  $("due-sched-go").addEventListener("click", function () {
+    api("/api/schedule", { hearing: $("due-hearing").value, rules: $("due-sched").value })
+      .then(function (j) { $("due-sched-out").textContent = j.text; })
+      .catch(function (e) { $("due-sched-out").textContent = e.message; });
+  });
+
+  $("ask-go").addEventListener("click", function () {
+    var f = $("ask-file").files[0];
+    if (!f) { $("ask-out").textContent = "Choose a PDF first."; return; }
+    $("ask-out").textContent = "Reading…";
+    upload(f).then(function (u) { return api("/api/ask", { job: job, name: u.name, question: $("ask-q").value }); })
+      .then(function (j) { $("ask-out").textContent = j.text; })
+      .catch(function (e) { $("ask-out").textContent = e.message; });
+  });
+
+  function refresh() {
+    api("/api/recent").then(function (j) {
+      var ul = $("send-list"); ul.innerHTML = "";
+      if (!j.files.length) { ul.innerHTML = "<li><span>No results yet.</span></li>"; return; }
+      j.files.forEach(function (f, i) {
+        var li = document.createElement("li");
+        var s = document.createElement("span"); s.textContent = (i + 1) + ". " + f.name; li.appendChild(s);
+        [["reveal", "Show in Finder"], ["copy", "Copy path"], ["mail", "Mail draft"]].forEach(function (a) {
+          var b = document.createElement("button"); b.textContent = a[1];
+          b.addEventListener("click", function () {
+            api("/api/send", { path: f.path, action: a[0] }).then(function (r) { say("send-msg", r.text); })
+              .catch(function (e) { say("send-msg", e.message, true); });
+          });
+          li.appendChild(b);
+        });
+        if (f.url) { li.appendChild(link(f.url, "Open")); }
+        ul.appendChild(li);
+      });
+    });
+  }
+  $("send-refresh").addEventListener("click", refresh);
+})();
+</script>
+</body>
+</html>

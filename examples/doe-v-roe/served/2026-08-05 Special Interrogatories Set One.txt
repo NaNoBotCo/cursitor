@@ -1,0 +1,48 @@
+JANE DOE
+100 Sample Way, Apt. 4
+Oakland, CA 94600
+Plaintiff in Pro Per
+
+SUPERIOR COURT OF THE STATE OF CALIFORNIA, COUNTY OF ALAMEDA
+
+Jane Doe v. Roe Holdings, LLC, Case No. 26CV000000 (fictional example)
+
+PROPOUNDING PARTY: Plaintiff Jane Doe
+RESPONDING PARTY: Defendant Roe Holdings, LLC
+SET NO.: One
+
+PLAINTIFF'S SPECIAL INTERROGATORIES, SET ONE
+
+Plaintiff requests that Defendant Roe Holdings, LLC answer each interrogatory below, separately and fully, in writing and under oath, within 30 days after service, as Code of Civil Procedure section 2030.260 provides.
+
+DEFINITIONS
+
+"APARTMENT" means Apartment 4 at 100 Sample Way, Oakland, California.
+
+"LEAK" means the water that entered the APARTMENT through the bathroom ceiling beginning on or about November 18, 2025.
+
+SPECIAL INTERROGATORY NO. 1:
+State the date YOU first learned of the LEAK.
+
+SPECIAL INTERROGATORY NO. 2:
+Identify each person who inspected the APARTMENT for water intrusion between November 18, 2025 and April 30, 2026.
+
+SPECIAL INTERROGATORY NO. 3:
+State each step YOU took to repair the LEAK, with the date of each step.
+
+SPECIAL INTERROGATORY NO. 4:
+Identify each plumber or contractor YOU called about the LEAK.
+
+SPECIAL INTERROGATORY NO. 5:
+State the amount of the security deposit YOU hold or held for the APARTMENT.
+
+SPECIAL INTERROGATORY NO. 6:
+State the date YOU mailed or delivered an itemized statement of deductions from the security deposit, if YOU did.
+
+SPECIAL INTERROGATORY NO. 7:
+Identify each written mold inspection report concerning the APARTMENT that YOU received, by author, date, and date of receipt.
+
+SPECIAL INTERROGATORY NO. 8:
+State every fact that supports YOUR contention, if YOU contend it, that the LEAK was repaired within a reasonable time.
+
+PROOF OF SERVICE: On August 5, 2026, I served this document by electronic service on Morgan Poe, Poe & Moe LLP, at mpoe@poe-moe.example, under the parties' written agreement to accept electronic service. /s/ Jane Doe

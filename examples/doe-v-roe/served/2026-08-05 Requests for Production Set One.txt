@@ -1,0 +1,34 @@
+JANE DOE
+Plaintiff in Pro Per
+
+SUPERIOR COURT OF THE STATE OF CALIFORNIA, COUNTY OF ALAMEDA
+
+Jane Doe v. Roe Holdings, LLC, Case No. 26CV000000 (fictional example)
+
+PROPOUNDING PARTY: Plaintiff Jane Doe
+RESPONDING PARTY: Defendant Roe Holdings, LLC
+SET NO.: One
+
+PLAINTIFF'S REQUESTS FOR PRODUCTION OF DOCUMENTS, SET ONE
+
+Under Code of Civil Procedure section 2031.010, Plaintiff requests that Defendant Roe Holdings, LLC produce the documents described below within 30 days after service.
+
+REQUEST FOR PRODUCTION NO. 1:
+All communications between YOU and Plaintiff concerning the LEAK.
+
+REQUEST FOR PRODUCTION NO. 2:
+All work orders, invoices and receipts for repairs to the APARTMENT from November 1, 2025 to April 30, 2026.
+
+REQUEST FOR PRODUCTION NO. 3:
+All communications between YOU and any plumber or contractor concerning the LEAK.
+
+REQUEST FOR PRODUCTION NO. 4:
+All mold inspection reports concerning the APARTMENT, including any report prepared by Example Air Testing Co.
+
+REQUEST FOR PRODUCTION NO. 5:
+All documents showing the receipt, holding, deduction from, or return of Plaintiff's security deposit.
+
+REQUEST FOR PRODUCTION NO. 6:
+Any itemized statement of deductions from the security deposit.
+
+PROOF OF SERVICE: On August 5, 2026, I served this document by electronic service on Morgan Poe, Poe & Moe LLP, at mpoe@poe-moe.example, under the parties' written agreement to accept electronic service. /s/ Jane Doe
