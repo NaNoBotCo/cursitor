@@ -1,0 +1,9 @@
+# One entry per line: a word, a name, a phrase or a regular expression (case-insensitive).
+# `cursitor muzzle <draft>` exits 1 when a draft contains any of them.
+# Settlement talk stays off paper (Evid. Code §1152).
+settlement (offer|talks|discussions|conference statement)
+mediation brief
+# Plaintiff's health history is not at issue in this case.
+\btherap(y|ist)\b
+# A neighbour who asked not to be named.
+\bTaylor Quinn\b

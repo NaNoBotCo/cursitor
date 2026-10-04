@@ -1,0 +1,67 @@
+CURSITOR — HOW TO SET IT UP ON A MAC
+
+Cursitor is a set of tools for a court case: it counts deadlines and shows the arithmetic, makes pleading paper, numbers exhibits, and reads PDFs. It runs on your Mac.
+
+You need: a Mac, about 15 minutes, and this folder.
+
+STEP 1. Put the folder somewhere you will find it.
+
+Drag the "cursitor" folder into your Documents folder.
+
+STEP 2. Open Terminal.
+
+Press Command and Space together, type Terminal, press Return. A window with text opens.
+
+STEP 3. Install the two parts Cursitor uses.
+
+Copy this line, paste it into Terminal, press Return:
+
+python3 -m pip install --user pypdf reportlab
+
+If the Mac asks to install "command line developer tools", click Install and wait. Then run the line again.
+
+STEP 4 (for scanned papers). Install the reading tools.
+
+This step lets Cursitor read scans. It needs Homebrew (brew.sh). With Homebrew installed, paste this line and press Return:
+
+brew install ocrmypdf tesseract ghostscript poppler
+
+Skip this step if your PDFs already have text you can select.
+
+STEP 5. Open the Desk.
+
+In Finder, open the cursitor folder and double-click "Cursitor.command".
+
+The first time, macOS may say it cannot open it. Right-click the file, choose Open, then click Open.
+
+Your web browser opens a page with six big buttons.
+
+THE SIX BUTTONS
+
+Paste a lawsuit — paste text copied from a PDF or a court website. Cursitor removes the line numbers, page numbers and headers, and joins the lines back into paragraphs.
+
+Add PDFs — choose your exhibits. Cursitor puts them in order, adds an "EXHIBIT 1" page before each, stamps a number on every page, and makes one PDF plus a list.
+
+Make pleading paper — paste your text, give it a title. Cursitor makes a PDF on court pleading paper with numbered lines.
+
+What's due — pick the day you were served, how you were served, and what was served. Cursitor shows the due date and the arithmetic that got there, with the law it used.
+
+Ask a PDF — choose a PDF and type a few words. Cursitor shows where they appear, by page and line.
+
+Send — your recent results. Show one in Finder, copy where it is, or open a Mail message with it attached. You address the message and press Send yourself.
+
+TO STOP
+
+Close the browser tab. In the Terminal window that opened, press Control and C.
+
+THE DATES
+
+Every date comes with its arithmetic, for example: "Due Wed Sep 9 2026 — served by email Aug 5 + 30 days = Fri Sep 4; + 2 court days for e-service, skipping Labor Day = Wed Sep 9."
+
+Court holidays come from tables in the "holidays" folder. Courts can close on other days. Your court's own calendar is the one that counts.
+
+A date shows SCHEDULED when a court order, notice or proof of service for it is saved in your case folder. Otherwise it shows PROPOSED.
+
+WITH CLAUDE CODE
+
+If you use Claude Code, the README file explains how to add Cursitor to it.

@@ -1,0 +1,6 @@
+# Python 3.9 or later.
+pypdf>=4.0
+reportlab>=4.0
+# Optional, for building the example scan: Pillow
+# Optional, for the test runner: pytest (tests/run.py runs without it)
+# Outside pip, for OCR: ocrmypdf (pip or brew), tesseract and ghostscript (brew), poppler for pdftotext (brew)

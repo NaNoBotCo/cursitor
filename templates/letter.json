@@ -1,0 +1,15 @@
+{
+  "name": "letter",
+  "label": "Plain letter (meet-and-confer letters, cover letters)",
+  "kind": "letter",
+  "page": [612, 792],
+  "margin": 72.0,
+  "lead": 15.0,
+  "paragraph_gap": 9.0,
+  "font": "Times-Roman",
+  "bold": "Times-Bold",
+  "italic": "Times-Italic",
+  "size": 12,
+  "footer_size": 9,
+  "notes": "One-inch margins, single spacing, a blank half-line between paragraphs, sender block at the top, page number at the foot from page 2."
+}

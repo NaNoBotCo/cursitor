@@ -1,0 +1,12 @@
+{
+  "id": "F1",
+  "question": "File the motion to compel further responses now, or send one more meet-and-confer letter first?",
+  "context": "The motion is due Tue Oct 27 2026 (45 days from the Sept 9 responses + 2 court days e-service). A motion needs a meet-and-confer declaration either way.",
+  "options": [
+    {"key": "a", "label": "Send the letter, ask for supplemental responses by Oct 16, file the motion by Oct 27 if they do not arrive", "cost": "one letter; the motion work waits until Oct 16", "worst_case": "late supplemental responses arrive Oct 26 and leave one day to review them"},
+    {"key": "b", "label": "File the motion now", "cost": "motion, separate statement and declaration this week; filing fee", "worst_case": "the court finds the meet-and-confer effort thin and denies sanctions"}
+  ],
+  "expiry": "2026-10-16",
+  "default_if_silent": "none",
+  "opened": "2026-10-02"
+}

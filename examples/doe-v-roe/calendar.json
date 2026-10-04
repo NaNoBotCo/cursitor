@@ -1,0 +1,94 @@
+{
+  "matter": "Doe v. Roe Holdings (fictional example)",
+  "entries": [
+    {
+      "id": "rog-responses-due",
+      "title": "Roe's responses to Special Interrogatories, Set One",
+      "kind": "deadline",
+      "rule": "ca.rog_response",
+      "served": "2026-08-05",
+      "method": "email",
+      "date": "2026-09-09",
+      "order": "served/2026-08-05 Special Interrogatories Set One.txt",
+      "done": "2026-09-09"
+    },
+    {
+      "id": "rfa-responses-due-2026-09-04",
+      "title": "Plaintiff's responses to Roe's Requests for Admission, Set One",
+      "kind": "deadline",
+      "rule": "ca.rfa_response",
+      "served": "2026-09-04",
+      "method": "mail",
+      "date": "2026-10-09",
+      "order": "received/2026-09-04 Requests for Admission Set One from defendant.txt"
+    },
+    {
+      "id": "mtc-further-rog-2026-09-09",
+      "title": "Motion to compel further responses: interrogatories",
+      "kind": "deadline",
+      "rule": "ca.mtc_further_rog",
+      "served": "2026-09-09",
+      "method": "email",
+      "date": "2026-10-27",
+      "order": "received/2026-09-09 Proof of Service of responses.pdf"
+    },
+    {
+      "id": "mtc-further-rfp-2026-09-09",
+      "title": "Motion to compel further responses: production",
+      "kind": "deadline",
+      "rule": "ca.mtc_further_rfp",
+      "served": "2026-09-09",
+      "method": "email",
+      "date": "2026-10-27",
+      "order": "received/2026-09-09 Proof of Service of responses.pdf"
+    },
+    {
+      "id": "cmc-statement",
+      "title": "Case Management Statement (CM-110)",
+      "kind": "deadline",
+      "rule": "ca.cmc_statement",
+      "hearing": "2026-11-12",
+      "date": "2026-10-28",
+      "order": "received/2026-06-15 Notice of Case Management Conference.pdf"
+    },
+    {
+      "id": "cmc",
+      "title": "Case Management Conference",
+      "kind": "hearing",
+      "date": "2026-11-12",
+      "time": "09:00",
+      "duration_min": 30,
+      "location": "Department 17",
+      "arithmetic": "set by the court's Notice of Case Management Conference dated June 15, 2026",
+      "order": "received/2026-06-15 Notice of Case Management Conference.pdf"
+    },
+    {
+      "id": "mtc-hearing",
+      "title": "Hearing: motion to compel further responses",
+      "kind": "hearing",
+      "date": "2026-12-03",
+      "time": "09:00",
+      "duration_min": 60,
+      "location": "Department 17",
+      "arithmetic": "date reserved with the department on October 1, 2026; no notice of hearing served or filed yet"
+    },
+    {
+      "id": "plaintiff-deposition",
+      "title": "Deposition of plaintiff",
+      "kind": "event",
+      "date": "2026-10-28",
+      "time": "10:00",
+      "duration_min": 240,
+      "location": "Poe & Moe LLP, 200 Example Plaza, Suite 12, Oakland",
+      "arithmetic": "noticed for October 14, 2026; counsel's email of September 30 proposes October 28",
+      "moved": true,
+      "moved_from": "2026-10-14"
+    },
+    {
+      "id": "mediation",
+      "title": "Mediation",
+      "kind": "event",
+      "date": "2026-10-20"
+    }
+  ]
+}

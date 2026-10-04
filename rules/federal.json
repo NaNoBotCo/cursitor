@@ -1,0 +1,115 @@
+{
+  "jurisdiction": "fed",
+  "name": "United States district court",
+  "holidays": "federal",
+  "state_holidays": "ca",
+  "court_tz": "America/Los_Angeles",
+  "counting": {
+    "forward_cite": "FRCP 6(a)(1)",
+    "roll_cite": "FRCP 6(a)(1)(C)",
+    "backward_cite": "FRCP 6(a)(5)",
+    "extension_mode": "after_roll",
+    "note": "Exclude the day of the event, count every day, include the last day; a last day on a Saturday, Sunday or legal holiday runs to the next day that is not one (6(a)(1)(C)). Rule 6(d) adds 3 days after the period would otherwise expire under 6(a), and the result rolls again. Counting backward, the next day is the day before (6(a)(5)). State holidays count as legal holidays for forward periods under 6(a)(6)(C); this engine reports them and does not take that extension unless --state-holidays is set."
+  },
+  "methods": {
+    "personal": {"label": "personal delivery", "short": "personal delivery", "add": 0, "unit": "calendar", "cite": "FRCP 5(b)(2)(A)-(B)", "short_cite": "5(b)(2)(A)-(B)"},
+    "mail": {"label": "mail", "short": "mail", "add": 3, "unit": "calendar", "cite": "FRCP 6(d)", "short_cite": "FRCP 6(d)"},
+    "clerk": {"label": "leaving with the clerk", "short": "leaving with the clerk", "add": 3, "unit": "calendar", "cite": "FRCP 6(d)", "short_cite": "FRCP 6(d)"},
+    "consent": {"label": "other means consented to in writing", "short": "other consented means", "add": 3, "unit": "calendar", "cite": "FRCP 6(d)", "short_cite": "FRCP 6(d)"},
+    "email": {"label": "electronic means", "short": "electronic service", "add": 0, "unit": "calendar", "cite": "FRCP 5(b)(2)(E)", "short_cite": "5(b)(2)(E)", "zero_note": "no added days for electronic service (FRCP 6(d) leaves out Rule 5(b)(2)(E) since Dec. 1, 2016)"}
+  },
+  "aliases": {
+    "electronic": "email", "e-service": "email", "eservice": "email", "ecf": "email", "cm/ecf": "email", "efile": "email", "e-mail": "email",
+    "hand": "personal", "us-mail": "mail", "consented": "consent", "other": "consent"
+  },
+  "rules": [
+    {
+      "id": "fed.answer",
+      "label": "Answer after service of summons and complaint",
+      "direction": "after", "trigger": "service of the summons and complaint",
+      "days": 21, "unit": "calendar",
+      "cite": "FRCP 12(a)(1)(A)(i)",
+      "service_extension": false,
+      "notes": "Service of the summons is made under Rule 4, so Rule 6(d) adds no days."
+    },
+    {
+      "id": "fed.answer_waiver",
+      "label": "Answer after a timely returned waiver of service",
+      "direction": "after", "trigger": "the waiver request was sent",
+      "trigger_phrase": "waiver request sent",
+      "days": 60, "unit": "calendar",
+      "cite": "FRCP 12(a)(1)(A)(ii)",
+      "service_extension": false,
+      "notes": "90 days when the request was sent to a defendant outside any judicial district of the United States: use fed.answer_waiver_foreign."
+    },
+    {
+      "id": "fed.answer_waiver_foreign",
+      "label": "Answer after waiver, request sent outside the United States",
+      "direction": "after", "trigger": "the waiver request was sent",
+      "trigger_phrase": "waiver request sent",
+      "days": 90, "unit": "calendar",
+      "cite": "FRCP 12(a)(1)(A)(ii)",
+      "service_extension": false
+    },
+    {
+      "id": "fed.discovery_response",
+      "label": "Responses to interrogatories, requests for production or requests for admission",
+      "direction": "after", "trigger": "service of the discovery requests",
+      "days": 30, "unit": "calendar",
+      "cite": "FRCP 33(b)(2)",
+      "also": ["FRCP 34(b)(2)(A) (production)", "FRCP 36(a)(3) (admissions)"],
+      "service_extension": true
+    },
+    {
+      "id": "fed.rog_response", "label": "Answers and objections to interrogatories",
+      "direction": "after", "trigger": "service of the interrogatories",
+      "days": 30, "unit": "calendar", "cite": "FRCP 33(b)(2)", "service_extension": true
+    },
+    {
+      "id": "fed.rfp_response", "label": "Response to requests for production",
+      "direction": "after", "trigger": "service of the requests",
+      "days": 30, "unit": "calendar", "cite": "FRCP 34(b)(2)(A)", "service_extension": true
+    },
+    {
+      "id": "fed.rfa_response", "label": "Answer or objection to requests for admission",
+      "direction": "after", "trigger": "service of the requests",
+      "days": 30, "unit": "calendar", "cite": "FRCP 36(a)(3)", "service_extension": true,
+      "notes": "A matter is admitted unless answered within 30 days (Rule 36(a)(3))."
+    },
+    {
+      "id": "fed.cdcal_motion_notice",
+      "label": "C.D. Cal.: file and serve notice of motion",
+      "direction": "before", "trigger": "hearing",
+      "days": 28, "unit": "calendar",
+      "cite": "C.D. Cal. L.R. 6-1",
+      "service_extension": true,
+      "notes": "Many judges set their own briefing schedule by standing order."
+    },
+    {
+      "id": "fed.cdcal_opposition",
+      "label": "C.D. Cal.: file opposition",
+      "direction": "before", "trigger": "hearing",
+      "days": 21, "unit": "calendar",
+      "cite": "C.D. Cal. L.R. 7-9",
+      "service_extension": false
+    },
+    {
+      "id": "fed.cdcal_reply",
+      "label": "C.D. Cal.: file reply",
+      "direction": "before", "trigger": "hearing",
+      "days": 14, "unit": "calendar",
+      "cite": "C.D. Cal. L.R. 7-10",
+      "service_extension": false
+    }
+  ],
+  "schedules": {
+    "fed.cdcal": {
+      "label": "Central District of California noticed motion (L.R. 6-1, 7-9, 7-10)",
+      "rows": [
+        {"rule": "fed.cdcal_motion_notice", "prefix": "Motion: file and serve by", "methods": ["email", "mail"]},
+        {"rule": "fed.cdcal_opposition", "prefix": "Opposition: file by"},
+        {"rule": "fed.cdcal_reply", "prefix": "Reply: file by"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+# Cursitor · เคอร์ซิเตอร์
+
+A litigation desk for Claude Code, in English and Thai. The page runs its demos in the browser on a fictional matter, Doe v. Roe Holdings, LLC.
+
+- Paste: a lawsuit copied from a PDF or court site loses its line numbers, running headers and page footers; hyphenation is mended, paragraphs rejoined, and the result set on California pleading paper (28 numbered lines, caption, footer) as a PDF.
+- Exhibits: dropped PDFs get slip sheets and Bates numbers; scanned pages go through OCR (tesseract.js) and gain a searchable text layer; the index reads titles from the page; questions return exhibit, page and Bates number.
+- Calendar: deadlines from service with the arithmetic shown (CCP §§12, 12a, 1010.6(a)(3)(B), 1013; FRCP 6(a), 6(d)); California court holidays per CRC 1.11 and federal holidays per 5 U.S.C. §6103; briefing schedule counted back from a hearing under CCP §1005(b); hearing time in the reader's zone; events SCHEDULED only with a named order, moves FLAGGED without a signed stipulation.
+- Links: long court-file paths become short ASCII links that follow renames.
+- Gate: "send" waits until the served requests and received verified answers on the subject are opened; a per-matter muzzle list checks each draft.
+- Morning brief and fork cards (options, cost, worst case, expiry, default if silent).
+- Desk window with six large buttons for non-technical staff; the same engine as Claude Code slash commands, skills and hooks.
+
+Tiers: pro se, US$0 kit with help by the hour; boutique firm of about fifteen, US$25,000 setup then US$500 a month.
+Contact: nan@motdang.net
+Kit: https://github.com/NaNoBotCo/cursitor
+
+Text CC BY 4.0, code MIT.

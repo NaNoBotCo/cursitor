@@ -1,0 +1,88 @@
+{
+  "jurisdiction": "ca",
+  "year": 2027,
+  "source": "Code Civ. Proc. §135; Gov. Code §6700; Cal. Rules of Court, rule 1.11 (Sunday holiday observed Monday, Saturday holiday observed the Friday before)",
+  "verify": "the court's own holiday calendar for the year; a court can close on other days by order",
+  "computed_by": "cursitor/holidays.py",
+  "holidays": [
+    {
+      "date": "2027-01-01",
+      "weekday": "Fri",
+      "name": "New Year's Day"
+    },
+    {
+      "date": "2027-01-18",
+      "weekday": "Mon",
+      "name": "Martin Luther King Jr. Day"
+    },
+    {
+      "date": "2027-02-12",
+      "weekday": "Fri",
+      "name": "Lincoln's Birthday"
+    },
+    {
+      "date": "2027-02-15",
+      "weekday": "Mon",
+      "name": "Washington's Birthday"
+    },
+    {
+      "date": "2027-03-31",
+      "weekday": "Wed",
+      "name": "César Chávez Day"
+    },
+    {
+      "date": "2027-05-31",
+      "weekday": "Mon",
+      "name": "Memorial Day"
+    },
+    {
+      "date": "2027-06-18",
+      "weekday": "Fri",
+      "name": "Juneteenth",
+      "observed_for": "2027-06-19"
+    },
+    {
+      "date": "2027-07-05",
+      "weekday": "Mon",
+      "name": "Independence Day",
+      "observed_for": "2027-07-04"
+    },
+    {
+      "date": "2027-09-06",
+      "weekday": "Mon",
+      "name": "Labor Day"
+    },
+    {
+      "date": "2027-09-24",
+      "weekday": "Fri",
+      "name": "Native American Day"
+    },
+    {
+      "date": "2027-11-11",
+      "weekday": "Thu",
+      "name": "Veterans Day"
+    },
+    {
+      "date": "2027-11-25",
+      "weekday": "Thu",
+      "name": "Thanksgiving Day"
+    },
+    {
+      "date": "2027-11-26",
+      "weekday": "Fri",
+      "name": "Day after Thanksgiving"
+    },
+    {
+      "date": "2027-12-24",
+      "weekday": "Fri",
+      "name": "Christmas Day",
+      "observed_for": "2027-12-25"
+    },
+    {
+      "date": "2027-12-31",
+      "weekday": "Fri",
+      "name": "New Year's Day",
+      "observed_for": "2028-01-01"
+    }
+  ]
+}

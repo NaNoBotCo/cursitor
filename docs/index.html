@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en" data-lang="en" translate="no" class="notranslate">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="google" content="notranslate">
+<title>Cursitor</title>
+<meta name="description" content="A litigation desk for Claude Code: short file links, deadlines with their arithmetic, pleading paper, exhibits and OCR. Free for pro se litigants; US$25,000 set up for a boutique firm.">
+<link rel="canonical" href="https://nanobotco.github.io/cursitor/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="NaNoBotCo">
+<meta property="og:title" content="Cursitor · เคอร์ซิเตอร์">
+<meta property="og:description" content="A litigation desk for Claude Code. · โต๊ะงานคดีความสำหรับ Claude Code">
+<meta property="og:url" content="https://nanobotco.github.io/cursitor/">
+<meta property="og:image" content="https://nanobotco.github.io/cursitor/card.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A sheet of pleading paper with numbered lines, a red ribbon and the word Cursitor.">
+<meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="th_TH">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://nanobotco.github.io/cursitor/card.jpg">
+<link rel="alternate" type="text/plain" href="https://nanobotco.github.io/cursitor/llms.txt" title="llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=IM+Fell+English+SC&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;600&family=Noto+Serif+Thai:wght@500;700&family=Sarabun:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#f3eee2; --panel:#fffcf4; --well:#e9e2d0; --ink:#1c1a16; --muted:#5c574c; --rule:#d5ccb6;
+  --tape:#a3272b; --tapetext:#9b2226; --seal:#b8892b; --sealtext:#7a5a12; --blue:#24477f; --green:#2d6e45; --margin:#c43d3d;
+  --display:"IM Fell English","Noto Serif Thai",Georgia,serif; --sc:"IM Fell English SC","IM Fell English",Georgia,serif;
+  --thai-display:"Noto Serif Thai","Sarabun",Tahoma,serif;
+  --body:"Atkinson Hyperlegible","Sarabun",Tahoma,system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#14130f; --panel:#1d1b16; --well:#28251e; --ink:#ede7d8; --muted:#a8a08f; --rule:#3a362c;
+  --tape:#d9555a; --tapetext:#f07a7e; --seal:#e0b552; --sealtext:#e8c26a; --blue:#8fb0ea; --green:#6cc48f; --margin:#e06a6a; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --ground:#14130f; --panel:#1d1b16; --well:#28251e; --ink:#ede7d8; --muted:#a8a08f; --rule:#3a362c;
+  --tape:#d9555a; --tapetext:#f07a7e; --seal:#e0b552; --sealtext:#e8c26a; --blue:#8fb0ea; --green:#6cc48f; --margin:#e06a6a; color-scheme:dark;}
+*{box-sizing:border-box}
+html,body{background:var(--ground);color:var(--ink)}
+body{margin:0;font:20px/1.6 var(--body);padding-inline:16px;padding-block:0 80px;overflow-x:hidden}
+.wrap{max-width:860px;margin:0 auto}
+a{color:var(--blue)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--seal);outline-offset:2px}
+[data-lang="en"] .th{display:none!important}
+[data-lang="th"] .en{display:none!important}
+header.bar{display:flex;align-items:center;gap:12px;max-width:860px;margin:0 auto;padding-block:14px}
+.brand{font:26px var(--sc);margin-right:auto;white-space:nowrap;letter-spacing:.02em}
+.brand i{color:var(--tapetext);font-style:normal}
+nav.jump{display:flex;gap:4px;flex-wrap:wrap}
+nav.jump a{font-size:16px;text-decoration:none;color:var(--muted);padding:6px 8px;border-radius:8px}
+nav.jump a:hover{background:var(--well);color:var(--ink)}
+@media (max-width:760px){nav.jump{display:none}}
+.lang{display:flex;border:2px solid var(--ink);border-radius:999px;overflow:hidden;flex:none}
+.lang button{font:700 17px var(--body);background:none;border:0;color:var(--ink);padding:6px 14px;cursor:pointer;min-height:44px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+h1,h2,h3{margin:0;line-height:1.12;text-wrap:balance;font-weight:400;font-family:var(--display)}
+[data-lang="th"] h1,[data-lang="th"] h2,[data-lang="th"] h3{font-family:var(--thai-display);font-weight:700;line-height:1.3}
+h2{font-size:clamp(32px,6vw,44px)}
+h3{font-size:26px;margin-top:18px}
+section{margin:64px 0}
+section>p{margin:.6em 0}
+.kicker{font:15px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tapetext);margin-bottom:6px}
+.muted{color:var(--muted)}
+small,.small{font-size:16px}
+
+/* hero: a sheet of pleading paper */
+.sheet{position:relative;background:var(--panel);border:1px solid var(--rule);box-shadow:0 1px 0 var(--rule),8px 10px 0 var(--well);margin:12px 0 0;padding:28px 22px 30px 86px;min-height:420px;overflow:hidden}
+.sheet::before{content:"";position:absolute;top:0;bottom:0;left:62px;width:6px;border-left:1.5px solid var(--margin);border-right:1.5px solid var(--margin)}
+.sheet::after{content:"";position:absolute;top:0;bottom:0;right:18px;border-right:1px solid var(--margin);opacity:.6}
+.sheet .nums{position:absolute;left:0;top:28px;width:52px;text-align:right;font:15px/32px var(--mono);color:var(--muted)}
+.sheet .body{line-height:32px}
+.sheet h1{font:clamp(56px,13vw,104px)/1 var(--display);margin:0 0 6px;letter-spacing:.01em}
+[data-lang="th"] .sheet h1{font-family:var(--display);font-weight:400}
+.sheet .lede{font-size:22px;line-height:32px;margin:0 0 32px;max-width:36em}
+.sheet .gloss{font-size:17px;color:var(--muted);line-height:32px;margin:0}
+.tape{position:absolute;right:-56px;top:34px;transform:rotate(38deg);background:var(--tape);color:#fff6ea;font:700 14px var(--mono);letter-spacing:.14em;padding:6px 70px;text-transform:uppercase;box-shadow:0 2px 0 rgba(0,0,0,.18)}
+@media (max-width:560px){.sheet{padding-left:58px}.sheet::before{left:40px}.sheet .nums{width:32px;font-size:13px}.tape{display:none}}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 18px var(--body);color:var(--ink);background:var(--panel);border:2px solid var(--ink);border-radius:10px;padding:10px 18px;cursor:pointer;min-height:50px;text-decoration:none}
+.btn.solid{background:var(--ink);color:var(--ground)}
+.btn.tape{position:static;transform:none;background:var(--tape);border-color:var(--tape);color:#fff6ea;letter-spacing:0;text-transform:none;font:700 18px var(--body);padding:10px 18px;box-shadow:none}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.small{font-size:16px;min-height:42px;padding:6px 12px}
+
+/* habit table */
+table.habits{width:100%;border-collapse:collapse;font-size:18px;margin-top:14px}
+table.habits th{text-align:left;font:15px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink);padding:8px 10px 8px 0}
+table.habits td{vertical-align:top;border-bottom:1px solid var(--rule);padding:10px 12px 10px 0}
+table.habits td:first-child{width:46%}
+table.habits td b{font-weight:700}
+@media (max-width:620px){table.habits thead{display:none}table.habits tr{display:block;border-bottom:1px solid var(--rule);padding:8px 0}table.habits td{display:block;border:0;padding:2px 0;width:auto!important}table.habits td:first-child{color:var(--muted)}table.habits td:last-child::before{content:"→ ";color:var(--tapetext);font-weight:700}}
+
+/* toys */
+.toy{background:var(--panel);border:2px solid var(--ink);border-radius:14px;padding:18px;margin:18px 0 8px;box-shadow:6px 6px 0 var(--rule)}
+.toy h3{margin-top:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+label.f{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:17px}
+input[type=text],input[type=date],input[type=time],input[type=search],select,textarea{font:18px var(--body);color:var(--ink);background:var(--ground);border:2px solid var(--ink);border-radius:8px;padding:8px 10px;min-height:46px;width:100%;min-width:0}
+textarea{font:14px/1.45 var(--mono);min-height:260px;resize:vertical;white-space:pre;overflow:auto}
+textarea.clean{white-space:pre-wrap}
+.seg{display:inline-flex;border:2px solid var(--ink);border-radius:10px;overflow:hidden}
+.seg button{font:700 17px var(--body);background:var(--panel);color:var(--ink);border:0;padding:8px 14px;min-height:46px;cursor:pointer}
+.seg button+button{border-left:2px solid var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{font:600 14px var(--mono);background:var(--well);border-radius:999px;padding:4px 10px}
+.chip.ok{background:color-mix(in srgb,var(--green) 18%,var(--panel));color:var(--green)}
+.chip.no{background:color-mix(in srgb,var(--tape) 16%,var(--panel));color:var(--tapetext)}
+.preview{display:flex;gap:12px;overflow-x:auto;padding:6px 2px 12px;scroll-snap-type:x mandatory}
+.preview canvas{flex:none;width:min(300px,78vw);height:auto;border:1px solid var(--rule);background:#fff;box-shadow:3px 3px 0 var(--well);scroll-snap-align:start}
+.drop{border:3px dashed var(--muted);border-radius:12px;padding:22px;text-align:center;font-weight:700;cursor:pointer;background:var(--ground)}
+.drop.over{border-color:var(--tape);background:var(--well)}
+.files{list-style:none;padding:0;margin:12px 0;counter-reset:ex}
+.files li{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--rule);padding:8px 0;font-size:17px}
+.files li .ex{font:700 15px var(--mono);background:var(--ink);color:var(--ground);border-radius:6px;padding:2px 8px;flex:none}
+.files li .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.files li button{font:700 18px var(--body);background:var(--well);border:0;border-radius:6px;min-width:40px;min-height:40px;cursor:pointer;color:var(--ink)}
+pre.out{font:14px/1.5 var(--mono);background:var(--ground);border:1px solid var(--rule);border-radius:8px;padding:12px;white-space:pre-wrap;word-break:break-word;margin:10px 0;max-height:420px;overflow:auto}
+.progress{font:15px var(--mono);color:var(--muted);min-height:1.5em}
+.hits{list-style:none;padding:0;margin:8px 0}
+.hits li{border-left:4px solid var(--seal);background:var(--ground);padding:8px 12px;margin:8px 0;font-size:17px}
+.hits li b{font:600 14px var(--mono);color:var(--sealtext);display:block}
+mark{background:color-mix(in srgb,var(--seal) 40%,transparent);color:inherit;padding:0 2px;border-radius:3px}
+
+/* calendar */
+.due{font:700 clamp(30px,7vw,44px)/1.15 var(--body);font-variant-numeric:lining-nums tabular-nums;margin:12px 0 4px}
+.arith{font:15px/1.6 var(--mono);background:var(--ground);border-left:4px solid var(--tape);padding:10px 12px;margin:10px 0}
+ol.steps{font-size:17px;padding-left:1.4em;margin:8px 0}
+ol.steps li{margin:4px 0}
+ol.steps code,.cite{font:14px var(--mono);color:var(--sealtext)}
+table.sched{width:100%;border-collapse:collapse;font-size:17px;margin-top:10px}
+table.sched td,table.sched th{border-bottom:1px solid var(--rule);padding:8px 8px 8px 0;text-align:left;vertical-align:top}
+table.sched th{font:14px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+@media (max-width:620px){table.sched thead{display:none}table.sched tr{display:block;padding:10px 0;border-bottom:1px solid var(--rule)}table.sched td{display:block;border:0;padding:2px 0}}
+.badge{display:inline-block;font:700 13px var(--mono);letter-spacing:.06em;border-radius:6px;padding:2px 8px;white-space:nowrap}
+.badge.sch{background:var(--green);color:var(--panel)}
+.badge.pro{background:transparent;color:var(--sealtext);border:2px dashed var(--seal)}
+.badge.flag{background:var(--tape);color:#fff6ea}
+.tzline{font-size:17px;margin:6px 0}
+.tzline b{font-variant-numeric:tabular-nums}
+
+/* links */
+.pathbox{font:14px/1.5 var(--mono);word-break:break-all;background:var(--ground);border:1px solid var(--rule);border-radius:8px;padding:10px 12px;margin:6px 0}
+.pathbox.bad{border-left:4px solid var(--tape)}
+.pathbox.good{border-left:4px solid var(--green);font-size:18px}
+.count{font:600 14px var(--mono);color:var(--muted)}
+
+/* gate */
+.letter{font:17px/1.7 Georgia,"Times New Roman",serif;background:#fffef9;color:#1b1a17;border:1px solid var(--rule);padding:18px 20px;border-radius:4px}
+.letter .hit{background:#f6d4d4;border-bottom:2px solid #a3272b}
+.letter .contra{background:#fbe7b0;border-bottom:2px solid #b8892b}
+.verdict{font:700 18px var(--mono);padding:10px 12px;border-radius:8px;margin:12px 0}
+.verdict.blocked{background:color-mix(in srgb,var(--tape) 16%,var(--panel));color:var(--tapetext)}
+.verdict.cleared{background:color-mix(in srgb,var(--green) 18%,var(--panel));color:var(--green)}
+details.rec{border:1px solid var(--rule);border-radius:8px;margin:8px 0;background:var(--ground)}
+details.rec summary{cursor:pointer;padding:10px 12px;font-weight:700;font-size:17px;list-style:none}
+details.rec summary::before{content:"▸ ";color:var(--tapetext)}
+details.rec[open] summary::before{content:"▾ "}
+details.rec[open] summary .seen{display:inline}
+details.rec .seen{display:none;color:var(--green);font:600 14px var(--mono);margin-left:6px}
+details.rec blockquote{margin:0;padding:4px 14px 12px;font:16px/1.6 Georgia,serif}
+
+/* fork card + brief */
+.fork{border:2px solid var(--ink);border-radius:12px;background:var(--ground);padding:14px 16px}
+.fork dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;margin:8px 0 0;font-size:17px}
+.fork dt{font:600 14px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding-top:3px}
+.fork dd{margin:0}
+.opts{display:grid;gap:8px;margin-top:10px}
+.opt{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;text-align:left;font:inherit;font-size:17px;color:inherit;background:var(--panel);border:2px solid var(--rule);border-radius:10px;padding:10px 12px;cursor:pointer}
+.opt b{font:700 16px var(--mono);color:var(--tapetext)}
+.opt[aria-pressed="true"]{border-color:var(--ink);box-shadow:3px 3px 0 var(--rule)}
+
+/* doors */
+.desk{background:var(--ground);border:2px solid var(--ink);border-radius:14px;padding:14px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.desk div{background:var(--panel);border:2px solid var(--ink);border-radius:12px;padding:14px 10px;text-align:center;font:700 21px var(--body);min-height:84px;display:flex;align-items:center;justify-content:center;gap:8px}
+.desk div span{font-size:28px}
+.term{background:#15140f;color:#e8e2cf;border-radius:14px;padding:14px 16px;font:14px/1.7 var(--mono);overflow-x:auto}
+.term .p{color:#e0b552}
+.term .c{color:#8fb0ea}
+.term .m{color:#a8a08f}
+
+/* price */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media (max-width:720px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--panel);border:2px solid var(--ink);border-radius:14px;padding:18px;display:flex;flex-direction:column}
+.tier.firm{box-shadow:8px 8px 0 var(--tape)}
+.tier h3{margin:0}
+.tier .price{font:700 clamp(38px,8vw,52px)/1 var(--body);font-variant-numeric:lining-nums;margin:12px 0 2px}
+.tier .then{font-size:18px;color:var(--muted);margin-bottom:10px}
+.tier ul{padding-left:1.1em;margin:8px 0 16px;font-size:18px}
+.tier ul li{margin:4px 0}
+.tier .btn{margin-top:auto;align-self:flex-start}
+
+footer{max-width:860px;margin:80px auto 0;border-top:2px solid var(--ink);padding-top:16px;font-size:16px;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="brand">Cursitor<i>.</i></div>
+  <nav class="jump" aria-label="Sections">
+    <a href="#paste"><span class="en">Paste</span><span class="th">วาง</span></a>
+    <a href="#exhibits"><span class="en">Exhibits</span><span class="th">เอกสารแนบ</span></a>
+    <a href="#calendar"><span class="en">Calendar</span><span class="th">ปฏิทิน</span></a>
+    <a href="#gate"><span class="en">Gate</span><span class="th">ด่านตรวจ</span></a>
+    <a href="#price"><span class="en">Price</span><span class="th">ราคา</span></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-set-lang="th" aria-pressed="false">ไทย</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="sheet" aria-labelledby="t">
+  <div class="nums" aria-hidden="true" id="sheetnums"></div>
+  <div class="tape" aria-hidden="true">Filed</div>
+  <div class="body">
+    <h1 id="t">Cursitor</h1>
+    <p class="lede en">A litigation desk for Claude Code. Short file links, deadlines that show their arithmetic, pleading paper, exhibits and OCR — for one person with one case, or a firm of fifteen.</p>
+    <p class="lede th">โต๊ะงานคดีความสำหรับ Claude Code ลิงก์ไฟล์สั้น กำหนดเวลาที่แสดงวิธีนับ กระดาษคำฟ้องแบบมีเลขบรรทัด เอกสารแนบ และ OCR สำหรับคนเดียวที่มีคดีเดียว หรือสำนักงานกฎหมายขนาดสิบห้าคน</p>
+    <p class="gloss en"><i>cursitor</i> (n.) — the clerk of the English Court of Chancery who drafted the writs.</p>
+    <p class="gloss th"><i>cursitor</i> (คำนาม) — เสมียนศาลชานเซอรีของอังกฤษ ผู้ร่างหมายศาล</p>
+    <div class="cta">
+      <a class="btn solid" href="#paste"><span class="en">Try it on this page</span><span class="th">ลองบนหน้านี้</span></a>
+      <a class="btn" href="#price"><span class="en">Two tiers</span><span class="th">สองระดับ</span></a>
+    </div>
+  </div>
+</div>
+
+<section id="habits" aria-labelledby="h-habits">
+  <div class="kicker en">Claude in a law office</div><div class="kicker th">Claude ในสำนักงานกฎหมาย</div>
+  <h2 id="h-habits"><span class="en">Habits, and the fix for each</span><span class="th">นิสัยเสีย และวิธีแก้ทีละข้อ</span></h2>
+  <table class="habits">
+    <thead><tr><th><span class="en">Claude habit</span><span class="th">นิสัยของ Claude</span></th><th>Cursitor</th></tr></thead>
+    <tbody>
+      <tr><td><span class="en">Hands you a path full of em-dashes and brackets that breaks when pasted.</span><span class="th">ส่งที่อยู่ไฟล์ที่เต็มไปด้วยขีดยาวและวงเล็บ วางแล้วใช้ไม่ได้</span></td><td><span class="en"><b>Links.</b> Every file comes back as a short link; rename the file and the link follows.</span><span class="th"><b>ลิงก์</b> ทุกไฟล์ได้ลิงก์สั้น เปลี่ยนชื่อไฟล์แล้วลิงก์ตามไปด้วย</span></td></tr>
+      <tr><td><span class="en">Forgets the case when a new session starts.</span><span class="th">ลืมคดีเมื่อเปิดเซสชันใหม่</span></td><td><span class="en"><b>Boot order.</b> Status file, done ledger, calendar and open forks, read first, every session.</span><span class="th"><b>ลำดับเปิดงาน</b> อ่านไฟล์สถานะ บัญชีงานเสร็จ ปฏิทิน และทางเลือกที่ค้างอยู่ก่อนทุกครั้ง</span></td></tr>
+      <tr><td><span class="en">States a deadline with no arithmetic. A wrong date survives by repetition.</span><span class="th">บอกวันครบกำหนดโดยไม่แสดงวิธีนับ วันที่ผิดจึงถูกพูดซ้ำจนกลายเป็นความจริง</span></td><td><span class="en"><b>Calendar.</b> Every date carries its count, rule, service extension and holiday rolls.</span><span class="th"><b>ปฏิทิน</b> ทุกวันที่มาพร้อมการนับ มาตรา วันขยายตามวิธีส่ง และการเลื่อนข้ามวันหยุด</span></td></tr>
+      <tr><td><span class="en">Lets a "proposed" hearing harden into a "scheduled" one.</span><span class="th">ปล่อยให้นัด "ที่เสนอ" กลายเป็นนัด "ที่กำหนดแล้ว"</span></td><td><span class="en"><b>Status.</b> Scheduled only with a named order or notice attached. Moved only with the signed stip on file.</span><span class="th"><b>สถานะ</b> กำหนดแล้วต่อเมื่อแนบคำสั่งหรือหมายนัดที่ระบุชื่อได้ เลื่อนต่อเมื่อมีบันทึกตกลงที่ลงนามแล้ว</span></td></tr>
+      <tr><td><span class="en">Clears a reply for service before reading the other side's verified answers.</span><span class="th">อนุมัติให้ส่งหนังสือตอบ ก่อนอ่านคำตอบที่อีกฝ่ายรับรองไว้</span></td><td><span class="en"><b>Gate.</b> Before "send", it pulls every served request and received answer on the subject and makes you read them.</span><span class="th"><b>ด่านตรวจ</b> ก่อนกดส่ง ระบบดึงคำขอที่ส่งไปและคำตอบที่ได้รับในเรื่องเดียวกันมาให้อ่านก่อน</span></td></tr>
+      <tr><td><span class="en">Invents rules and decides your forks for you.</span><span class="th">แต่งกฎขึ้นเอง และตัดสินใจแทนคุณ</span></td><td><span class="en"><b>Forks.</b> Options, cost, worst case, expiry, put to you; choices kept in an append-only ledger.</span><span class="th"><b>ทางแยก</b> ทางเลือก ต้นทุน กรณีเลวร้ายสุด วันหมดอายุ ส่งให้คุณเลือก และบันทึกไว้แบบเพิ่มอย่างเดียว</span></td></tr>
+      <tr><td><span class="en">Pastes a complaint with line numbers and page footers mid-sentence.</span><span class="th">วางคำฟ้องมาแล้วมีเลขบรรทัดและท้ายกระดาษแทรกกลางประโยค</span></td><td><span class="en"><b>Paste.</b> Strips the furniture, rejoins the paragraphs, sets it on pleading paper.</span><span class="th"><b>วาง</b> ลอกเลขบรรทัดและหัวท้ายกระดาษ ต่อย่อหน้าให้ แล้วจัดลงกระดาษคำฟ้อง</span></td></tr>
+      <tr><td><span class="en">Treats a scanned exhibit as blank.</span><span class="th">มองเอกสารสแกนว่าเป็นหน้าว่าง</span></td><td><span class="en"><b>OCR.</b> Scans become searchable; exhibits get slip sheets, Bates numbers and an index.</span><span class="th"><b>OCR</b> เอกสารสแกนค้นหาได้ เอกสารแนบได้ใบคั่น เลข Bates และสารบัญ</span></td></tr>
+      <tr><td><span class="en">Puts a topic on paper that must never be there.</span><span class="th">เขียนเรื่องที่ห้ามเขียนลงในเอกสารศาล</span></td><td><span class="en"><b>Muzzles.</b> A per-matter list checked on every draft.</span><span class="th"><b>รายการห้าม</b> รายการต่อคดี ตรวจทุกร่าง</span></td></tr>
+      <tr><td><span class="en">Says a document "does not exist" because it is not on the disk.</span><span class="th">บอกว่าเอกสาร "ไม่มีอยู่" เพราะหาไม่เจอในเครื่อง</span></td><td><span class="en"><b>Wording.</b> "Not on this disk."</span><span class="th"><b>ถ้อยคำ</b> "ไม่มีในเครื่องนี้"</span></td></tr>
+      <tr><td><span class="en">Ships asterisks and pipes in a letter.</span><span class="th">ส่งจดหมายที่มีดอกจันและเส้นตาราง Markdown ติดไปด้วย</span></td><td><span class="en"><b>Plain text.</b> Reader copies come out as plain text; papers as PDF.</span><span class="th"><b>ข้อความล้วน</b> ฉบับให้คนอ่านเป็นข้อความล้วน เอกสารศาลเป็น PDF</span></td></tr>
+      <tr><td><span class="en">Pushes a case folder to a remote with the rest of the code.</span><span class="th">ดันโฟลเดอร์คดีขึ้นเซิร์ฟเวอร์ไปพร้อมโค้ด</span></td><td><span class="en"><b>Guard.</b> A pre-push check for case numbers and party names blocks the push.</span><span class="th"><b>ยาม</b> ตรวจเลขคดีและชื่อคู่ความก่อน push แล้วหยุดไว้</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="paste" aria-labelledby="h-paste">
+  <div class="kicker">01</div>
+  <h2 id="h-paste"><span class="en">Paste</span><span class="th">วาง</span></h2>
+  <p class="en">Paste a lawsuit copied out of a PDF, Word file, email or court website. Cursitor removes line numbers, running headers and page footers, mends hyphenation, rejoins paragraphs, and sets the result on California pleading paper: 28 numbered lines, double rule, caption, footer.</p>
+  <p class="th">วางคำฟ้องที่คัดลอกมาจาก PDF ไฟล์ Word อีเมล หรือเว็บศาล Cursitor ลบเลขบรรทัด หัวกระดาษ ท้ายกระดาษ ต่อคำที่ถูกตัดยัติภังค์ ต่อย่อหน้าให้ แล้วจัดลงกระดาษคำฟ้องแบบแคลิฟอร์เนีย 28 บรรทัดมีเลข เส้นคู่ หัวคดี และท้ายกระดาษ (เอกสารตัวอย่างเป็นภาษาอังกฤษตามแบบศาลสหรัฐ)</p>
+  <div class="toy">
+    <div class="grid2">
+      <label class="f"><span class="en">Pasted (messy)</span><span class="th">ที่วางมา (เละ)</span>
+        <textarea id="pasteIn" spellcheck="false" aria-describedby="pasteStats"></textarea></label>
+      <label class="f"><span class="en">Clean</span><span class="th">สะอาดแล้ว</span>
+        <textarea id="pasteOut" class="clean" spellcheck="false" readonly></textarea></label>
+    </div>
+    <div class="stats" id="pasteStats" aria-live="polite"></div>
+    <details>
+      <summary class="small"><span class="en">Caption</span><span class="th">หัวคดี</span></summary>
+      <div class="grid2" style="margin-top:10px">
+        <label class="f"><span class="en">Party block (one line each)</span><span class="th">ข้อมูลผู้ยื่น (บรรทัดละรายการ)</span><textarea id="capParty" class="clean" style="min-height:130px;font-size:15px"></textarea></label>
+        <div style="display:grid;gap:10px">
+          <label class="f"><span class="en">Court</span><span class="th">ศาล</span><input type="text" id="capCourt"></label>
+          <label class="f"><span class="en">County</span><span class="th">เคาน์ตี</span><input type="text" id="capCounty"></label>
+          <label class="f"><span class="en">Case No.</span><span class="th">เลขคดี</span><input type="text" id="capCase"></label>
+        </div>
+        <label class="f"><span class="en">Parties (one line each)</span><span class="th">คู่ความ (บรรทัดละรายการ)</span><textarea id="capParties" class="clean" style="min-height:150px;font-size:15px"></textarea></label>
+        <label class="f"><span class="en">Document title</span><span class="th">ชื่อเอกสาร</span><textarea id="capTitle" class="clean" style="min-height:150px;font-size:15px"></textarea></label>
+      </div>
+    </details>
+    <div class="row">
+      <button class="btn tape" type="button" id="pleadBtn"><span class="en">Set on pleading paper</span><span class="th">จัดลงกระดาษคำฟ้อง</span></button>
+      <button class="btn small" type="button" id="pasteReset"><span class="en">Messy sample</span><span class="th">ตัวอย่างเละ</span></button>
+      <a class="btn small" id="pleadDl" hidden download="complaint-pleading.pdf"><span class="en">Download PDF</span><span class="th">ดาวน์โหลด PDF</span></a>
+      <span class="progress" id="pleadMsg" aria-live="polite"></span>
+    </div>
+    <div class="preview" id="pleadPrev" aria-label="Pleading paper preview"></div>
+  </div>
+</section>
+
+<section id="exhibits" aria-labelledby="h-ex">
+  <div class="kicker">02</div>
+  <h2 id="h-ex"><span class="en">Exhibits</span><span class="th">เอกสารแนบ</span></h2>
+  <p class="en">Drop PDFs. Each one gets an exhibit slip sheet and Bates numbers; scanned pages go through OCR and become searchable; the index reads each title from the page, not the filename. Out comes one package and an index. A question to the package comes back with exhibit, page and Bates number.</p>
+  <p class="th">ลาก PDF มาวาง แต่ละไฟล์ได้ใบคั่นเอกสารแนบและเลข Bates หน้าที่เป็นภาพสแกนผ่าน OCR จนค้นหาได้ สารบัญอ่านชื่อเอกสารจากหน้ากระดาษ ไม่ใช่จากชื่อไฟล์ ได้ออกมาเป็นชุดเดียวพร้อมสารบัญ แล้วถามคำถามกับชุดเอกสาร จะได้เลขหน้าและเลข Bates กลับมา</p>
+  <div class="toy">
+    <div class="drop" id="drop" tabindex="0" role="button" aria-describedby="dropHint">
+      <span class="en">Drop PDFs here, or tap to choose</span><span class="th">ลาก PDF มาวางที่นี่ หรือแตะเพื่อเลือก</span>
+      <div class="small muted" id="dropHint"><span class="en">The demo works in this browser tab.</span><span class="th">ตัวอย่างนี้ทำงานในแท็บเบราว์เซอร์นี้</span></div>
+    </div>
+    <input type="file" id="exFiles" accept="application/pdf" multiple class="sr">
+    <div class="row">
+      <button class="btn small" type="button" id="exSample"><span class="en">Use three sample PDFs (one is a scan)</span><span class="th">ใช้ PDF ตัวอย่างสามไฟล์ (หนึ่งไฟล์เป็นภาพสแกน)</span></button>
+      <label class="f" style="flex-direction:row;align-items:center;gap:8px"><span class="en">Bates prefix</span><span class="th">คำนำหน้า Bates</span><input type="text" id="exPrefix" value="DOE" style="width:110px;text-transform:uppercase" maxlength="8"></label>
+    </div>
+    <ul class="files" id="exList"></ul>
+    <div class="row">
+      <button class="btn tape" type="button" id="exBuild" disabled><span class="en">Build exhibit package</span><span class="th">สร้างชุดเอกสารแนบ</span></button>
+      <a class="btn small" id="exDl" hidden download="exhibits-package.pdf"><span class="en">Download package</span><span class="th">ดาวน์โหลดชุดเอกสาร</span></a>
+      <a class="btn small" id="exIdx" hidden download="exhibits-index.txt"><span class="en">Download index</span><span class="th">ดาวน์โหลดสารบัญ</span></a>
+    </div>
+    <div class="progress" id="exMsg" aria-live="polite"></div>
+    <pre class="out" id="exIndex" hidden></pre>
+    <div class="preview" id="exPrev"></div>
+    <div id="askBox" hidden>
+      <h3><span class="en">Questions</span><span class="th">คำถาม</span></h3>
+      <div class="row"><input type="search" id="askQ" placeholder="roof repair date" aria-label="Question"><button class="btn small" type="button" id="askGo"><span class="en">Ask</span><span class="th">ถาม</span></button></div>
+      <ul class="hits" id="askHits" aria-live="polite"></ul>
+    </div>
+  </div>
+</section>
+
+<section id="calendar" aria-labelledby="h-cal">
+  <div class="kicker">03</div>
+  <h2 id="h-cal"><span class="en">Calendar</span><span class="th">ปฏิทิน</span></h2>
+  <p class="en">Pick what started the clock. The date comes with its arithmetic: the count, the rule, the service-method extension and every weekend and court holiday it rolls past. Rule tables carry their citations, for checking each date against the current code, the local rules and the court's own holiday calendar.</p>
+  <p class="th">เลือกเหตุที่เริ่มนับเวลา วันครบกำหนดมาพร้อมวิธีนับ จำนวนวัน มาตรา วันขยายตามวิธีส่งเอกสาร และวันหยุดสุดสัปดาห์กับวันหยุดศาลทุกวันที่ข้ามไป ตารางกฎมีการอ้างมาตรากำกับ ไว้ตรวจแต่ละวันที่กับกฎหมายฉบับปัจจุบัน กฎศาลท้องถิ่น และปฏิทินวันหยุดของศาลเอง</p>
+  <div class="toy">
+    <h3><span class="en">Deadline from service</span><span class="th">วันครบกำหนดนับจากวันส่งเอกสาร</span></h3>
+    <div class="row"><div class="seg" role="group" aria-label="Court">
+      <button type="button" data-court="ca" aria-pressed="true"><span class="en">California</span><span class="th">แคลิฟอร์เนีย</span></button>
+      <button type="button" data-court="fed" aria-pressed="false"><span class="en">Federal</span><span class="th">ศาลรัฐบาลกลาง</span></button>
+    </div></div>
+    <div class="grid2">
+      <label class="f"><span class="en">What started the clock</span><span class="th">เหตุที่เริ่มนับ</span><select id="calRule"></select></label>
+      <label class="f"><span class="en">How it was served</span><span class="th">วิธีส่ง</span><select id="calMethod"></select></label>
+      <label class="f"><span class="en">Date served</span><span class="th">วันที่ส่ง</span><input type="date" id="calServed" value="2026-10-27"></label>
+    </div>
+    <div class="due" id="calDue" aria-live="polite"></div>
+    <div class="arith" id="calArith"></div>
+    <ol class="steps" id="calSteps"></ol>
+    <div class="row"><button class="btn small" type="button" id="calIcs"><span class="en">Add to calendar (.ics)</span><span class="th">เพิ่มลงปฏิทิน (.ics)</span></button></div>
+  </div>
+
+  <div class="toy">
+    <h3><span class="en">Briefing schedule, counted back from the hearing</span><span class="th">ตารางยื่นเอกสาร นับถอยหลังจากวันพิจารณา</span></h3>
+    <div class="grid2">
+      <label class="f"><span class="en">Hearing date</span><span class="th">วันพิจารณา</span><input type="date" id="hrDate" value="2026-12-07"></label>
+      <label class="f"><span class="en">Time (Pacific)</span><span class="th">เวลา (แปซิฟิก)</span><input type="time" id="hrTime" value="10:00"></label>
+    </div>
+    <p class="tzline" id="hrTz"></p>
+    <table class="sched"><thead><tr><th><span class="en">Paper</span><span class="th">เอกสาร</span></th><th><span class="en">Last day</span><span class="th">วันสุดท้าย</span></th><th><span class="en">Arithmetic</span><span class="th">วิธีนับ</span></th></tr></thead><tbody id="hrRows"></tbody></table>
+  </div>
+
+  <div class="toy">
+    <h3><span class="en">Scheduled or proposed</span><span class="th">กำหนดแล้ว หรือแค่เสนอ</span></h3>
+    <p class="en small">An event turns <span class="badge sch">SCHEDULED</span> only when a named order or notice is attached. A moved date without a signed stip on file is <span class="badge flag">FLAGGED</span>.</p>
+    <p class="th small">นัดจะเป็น <span class="badge sch">SCHEDULED</span> ต่อเมื่อแนบคำสั่งหรือหมายนัดที่ระบุชื่อได้ วันที่ถูกเลื่อนโดยไม่มีบันทึกตกลงที่ลงนาม จะถูก <span class="badge flag">FLAGGED</span></p>
+    <table class="sched"><thead><tr><th><span class="en">Event</span><span class="th">นัด</span></th><th><span class="en">Status</span><span class="th">สถานะ</span></th><th><span class="en">On file</span><span class="th">หลักฐานในแฟ้ม</span></th></tr></thead><tbody id="stRows"></tbody></table>
+  </div>
+</section>
+
+<section id="links" aria-labelledby="h-links">
+  <div class="kicker">04</div>
+  <h2 id="h-links"><span class="en">Links</span><span class="th">ลิงก์</span></h2>
+  <p class="en">Court files carry long names with em-dashes, brackets and commas. Pasted into a browser, the path turns into a wall of percent signs. Cursitor keeps a folder of short ASCII links that point at the files, gives every file in an answer as one of them, and re-points the link when a file is renamed or moved.</p>
+  <p class="th">ไฟล์คดีมีชื่อยาว มีขีดยาว วงเล็บ และจุลภาค วางลงเบราว์เซอร์แล้วกลายเป็นเครื่องหมายเปอร์เซ็นต์เต็มบรรทัด Cursitor เก็บโฟลเดอร์ลิงก์สั้นภาษาอังกฤษล้วนที่ชี้ไปยังไฟล์จริง ทุกไฟล์ในคำตอบมาเป็นลิงก์สั้น และเมื่อย้ายหรือเปลี่ยนชื่อไฟล์ ลิงก์ก็ชี้ตามไป</p>
+  <div class="toy">
+    <label class="f"><span class="en">A real path</span><span class="th">ที่อยู่ไฟล์จริง</span><input type="text" id="lnIn" spellcheck="false"></label>
+    <div class="count" id="lnBadN"></div>
+    <div class="pathbox bad" id="lnBad"></div>
+    <div class="count"><span class="en">Cursitor gives you</span><span class="th">Cursitor ให้</span></div>
+    <div class="pathbox good" id="lnGood"></div>
+  </div>
+</section>
+
+<section id="gate" aria-labelledby="h-gate">
+  <div class="kicker">05</div>
+  <h2 id="h-gate"><span class="en">Gate</span><span class="th">ด่านตรวจ</span></h2>
+  <p class="en">Before a paper goes out, Cursitor pulls the requests you served and the verified answers you received on the same subject, and holds "send" until you have opened each one. It also checks the draft against the matter's muzzle list. The sample draft below says the other side produced nothing on the roof; their verified answer says otherwise.</p>
+  <p class="th">ก่อนเอกสารจะออกไป Cursitor ดึงคำขอที่คุณส่งไปและคำตอบที่อีกฝ่ายรับรองไว้ในเรื่องเดียวกันมาให้ และล็อกปุ่มส่งไว้จนกว่าคุณจะเปิดอ่านครบ พร้อมตรวจร่างกับรายการห้ามของคดี ร่างตัวอย่างด้านล่างบอกว่าอีกฝ่ายไม่ได้ส่งเอกสารเรื่องหลังคาเลย แต่คำตอบที่เขารับรองไว้บอกต่างออกไป</p>
+  <div class="toy">
+    <div class="letter" id="gateLetter"></div>
+    <div class="verdict blocked" id="gateVerdict" aria-live="polite"></div>
+    <div id="gateRecs"></div>
+    <div class="row">
+      <button class="btn small" type="button" id="gateFix"><span class="en">Fix the draft</span><span class="th">แก้ร่าง</span></button>
+      <button class="btn tape" type="button" id="gateSend" disabled><span class="en">Send</span><span class="th">ส่ง</span></button>
+    </div>
+  </div>
+</section>
+
+<section id="brief" aria-labelledby="h-brief">
+  <div class="kicker">06</div>
+  <h2 id="h-brief"><span class="en">Morning brief and forks</span><span class="th">สรุปเช้า และทางแยก</span></h2>
+  <p class="en">Each morning: what is due today and this week, which clocks are running, which events are still only proposed, and any new federal docket entries from CourtListener. Decisions that belong to the client arrive as fork cards.</p>
+  <p class="th">ทุกเช้า: งานที่ครบกำหนดวันนี้และสัปดาห์นี้ นาฬิกาที่กำลังเดิน นัดที่ยังเป็นแค่ข้อเสนอ และรายการใหม่ในสารบบศาลรัฐบาลกลางจาก CourtListener เรื่องที่ลูกความต้องตัดสินใจเอง มาเป็นการ์ดทางแยก</p>
+  <div class="grid2">
+    <div class="toy" style="margin:0"><h3><span class="en">Brief</span><span class="th">สรุปเช้า</span></h3><pre class="out" id="briefOut" style="max-height:none"></pre></div>
+    <div class="toy" style="margin:0"><h3><span class="en">Fork</span><span class="th">ทางแยก</span></h3>
+      <div class="fork">
+        <b class="en">Oppose the motion to compel, or comply?</b><b class="th">คัดค้านคำร้องขอให้บังคับ หรือปฏิบัติตาม?</b>
+        <dl>
+          <dt><span class="en">Expiry</span><span class="th">หมดอายุ</span></dt><dd id="forkExp"></dd>
+          <dt><span class="en">Worst case</span><span class="th">แย่สุด</span></dt><dd><span class="en">Sanctions under CCP §2023.030 if the opposition loses.</span><span class="th">โดนค่าปรับตาม CCP §2023.030 ถ้าแพ้คำคัดค้าน</span></dd>
+          <dt><span class="en">If silent</span><span class="th">ถ้าไม่ตอบ</span></dt><dd><span class="en">B — the cheaper, quieter branch.</span><span class="th">B — ทางที่ถูกกว่าและเงียบกว่า</span></dd>
+        </dl>
+        <div class="opts" id="forkOpts">
+          <button class="opt" type="button" aria-pressed="false"><b>A</b><span><span class="en">Oppose. Cost: 6–8 hours; hearing Dec 7.</span><span class="th">คัดค้าน ต้นทุน 6–8 ชั่วโมง พิจารณา 7 ธ.ค.</span></span></button>
+          <button class="opt" type="button" aria-pressed="false"><b>B</b><span><span class="en">Serve further responses, ask them to take it off calendar. Cost: 2 hours.</span><span class="th">ส่งคำตอบเพิ่ม แล้วขอให้ถอนนัด ต้นทุน 2 ชั่วโมง</span></span></button>
+          <button class="opt" type="button" aria-pressed="false"><b>C</b><span><span class="en">Both: serve further responses and file a short opposition. Cost: 5 hours.</span><span class="th">ทั้งสองอย่าง ส่งคำตอบเพิ่มและยื่นคำคัดค้านสั้นๆ ต้นทุน 5 ชั่วโมง</span></span></button>
+        </div>
+        <p class="small muted" id="forkLog" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="doors" aria-labelledby="h-doors">
+  <div class="kicker">07</div>
+  <h2 id="h-doors"><span class="en">Desk and terminal</span><span class="th">โต๊ะงาน และเทอร์มินัล</span></h2>
+  <p class="en">One engine, two ways in. The desk is a window with six big buttons, large type and plain words, for the paralegal, the partner who never opens a terminal, or a litigant with low vision. The terminal side is the same engine as Claude Code slash commands, skills and hooks.</p>
+  <p class="th">เครื่องยนต์เดียว ทางเข้าสองทาง โต๊ะงานเป็นหน้าต่างที่มีปุ่มใหญ่หกปุ่ม ตัวอักษรใหญ่ ถ้อยคำง่าย สำหรับผู้ช่วยทนาย หุ้นส่วนที่ไม่เคยเปิดเทอร์มินัล หรือคู่ความที่สายตาไม่ดี ฝั่งเทอร์มินัลคือเครื่องยนต์เดียวกันในรูปคำสั่ง ทักษะ และฮุกของ Claude Code</p>
+  <div class="grid2">
+    <div class="desk" aria-label="Desk window">
+      <div><span aria-hidden="true">📋</span><span class="en">Paste a lawsuit</span><span class="th">วางคำฟ้อง</span></div>
+      <div><span aria-hidden="true">📎</span><span class="en">Add PDFs</span><span class="th">เพิ่ม PDF</span></div>
+      <div><span aria-hidden="true">📜</span><span class="en">Pleading paper</span><span class="th">กระดาษคำฟ้อง</span></div>
+      <div><span aria-hidden="true">📅</span><span class="en">What's due</span><span class="th">อะไรครบกำหนด</span></div>
+      <div><span aria-hidden="true">🔎</span><span class="en">PDF questions</span><span class="th">ถาม PDF</span></div>
+      <div><span aria-hidden="true">✉️</span><span class="en">Send</span><span class="th">ส่ง</span></div>
+    </div>
+<pre class="term" aria-label="Terminal"><span class="p">doe-v-roe ❯</span> claude
+<span class="c">/boot</span>       <span class="m">status, done, calendar, forks</span>
+<span class="c">/deadline</span>   <span class="m">served 10/27 email ca.discovery</span>
+<span class="c">/plead</span>      <span class="m">drafts/opposition.txt</span>
+<span class="c">/exhibits</span>   <span class="m">exhibits/ --prefix DOE</span>
+<span class="c">/ocr</span>       <span class="m">received/*.pdf</span>
+<span class="c">/gate</span>      <span class="m">drafts/meet-and-confer.txt</span>
+<span class="c">/fork</span>      <span class="m">new "oppose or comply"</span>
+<span class="c">/brief</span>     <span class="m">this morning</span>
+<span class="c">/link</span>      <span class="m">out/opposition.pdf</span>
+<span class="c">/send</span>      <span class="m">pick by number</span></pre>
+  </div>
+<p class="small en">Output from the kit, run on the example matter: <a href="samples/complaint.pdf">complaint.pdf</a> · <a href="samples/complaint-clean.txt">complaint-clean.txt</a> · <a href="samples/exhibits-package.pdf">exhibits-package.pdf</a> · <a href="samples/exhibits-index.txt">exhibits-index.txt</a> · <a href="samples/deadline-examples.txt">deadline-examples.txt</a> · <a href="samples/brief-schedule.txt">brief-schedule.txt</a> · <a href="samples/calendar.ics">calendar.ics</a> · <a href="samples/brief.txt">brief.txt</a> · <a href="samples/gate-blocked.txt">gate-blocked.txt</a></p>
+  <p class="small th">ผลลัพธ์จากชุดเครื่องมือ ทดลองกับคดีตัวอย่าง: <a href="samples/complaint.pdf">complaint.pdf</a> · <a href="samples/complaint-clean.txt">complaint-clean.txt</a> · <a href="samples/exhibits-package.pdf">exhibits-package.pdf</a> · <a href="samples/exhibits-index.txt">exhibits-index.txt</a> · <a href="samples/deadline-examples.txt">deadline-examples.txt</a> · <a href="samples/brief-schedule.txt">brief-schedule.txt</a> · <a href="samples/calendar.ics">calendar.ics</a> · <a href="samples/brief.txt">brief.txt</a> · <a href="samples/gate-blocked.txt">gate-blocked.txt</a></p>
+</section>
+
+<section id="price" aria-labelledby="h-price">
+  <div class="kicker">08</div>
+  <h2 id="h-price"><span class="en">Two tiers</span><span class="th">สองระดับ</span></h2>
+  <div class="tiers">
+    <div class="tier">
+      <h3><span class="en">Pro se</span><span class="th">ว่าความเอง</span></h3>
+      <div class="price">US$0</div>
+      <div class="then"><span class="en">The kit. Help by the hour on request.</span><span class="th">ชุดเครื่องมือ ขอความช่วยเหลือคิดเป็นรายชั่วโมงได้</span></div>
+      <ul class="en">
+        <li>Claude Code plugin: commands, skills, hooks</li>
+        <li>Matter folder template with boot order</li>
+        <li>Calendar engine, California and federal tables</li>
+        <li>Pleading paper, paste cleaning, exhibits, OCR</li>
+        <li>The desk window, large type</li>
+        <li>Install guide in plain words</li>
+      </ul>
+      <ul class="th">
+        <li>ปลั๊กอิน Claude Code: คำสั่ง ทักษะ ฮุก</li>
+        <li>แม่แบบโฟลเดอร์คดี พร้อมลำดับเปิดงาน</li>
+        <li>เครื่องคำนวณปฏิทิน ตารางกฎแคลิฟอร์เนียและรัฐบาลกลาง</li>
+        <li>กระดาษคำฟ้อง ล้างข้อความที่วาง เอกสารแนบ OCR</li>
+        <li>หน้าต่างโต๊ะงาน ตัวอักษรใหญ่</li>
+        <li>คู่มือติดตั้งภาษาง่าย</li>
+      </ul>
+      <a class="btn" href="https://github.com/NaNoBotCo/cursitor"><span class="en">Get the kit</span><span class="th">รับชุดเครื่องมือ</span></a>
+    </div>
+    <div class="tier firm">
+      <h3><span class="en">Boutique firm</span><span class="th">สำนักงานกฎหมายขนาดเล็ก</span></h3>
+      <div class="price">US$25,000</div>
+      <div class="then"><span class="en">Setup for a firm of about fifteen, then US$500 a month.</span><span class="th">ติดตั้งให้สำนักงานราวสิบห้าคน จากนั้นเดือนละ US$500</span></div>
+      <ul class="en">
+        <li>Everything in the kit, installed on your machines</li>
+        <li>Your local rules and court holidays in the calendar</li>
+        <li>Your captions, letterhead and signature blocks</li>
+        <li>A folder per matter, conflicts register, firm calendar</li>
+        <li>Seats for attorneys and staff; audit ledger of who drafted, who cleared, and what record was read first</li>
+        <li>Optional open-weights workspace on your own accounts, for matters you keep off outside AI servers</li>
+        <li>Two training sessions, thirty days of fixes</li>
+        <li>US$500 a month after: fixes, updates, new court formats</li>
+      </ul>
+      <ul class="th">
+        <li>ทุกอย่างในชุดเครื่องมือ ติดตั้งบนเครื่องของคุณ</li>
+        <li>กฎศาลท้องถิ่นและวันหยุดศาลของคุณในปฏิทิน</li>
+        <li>หัวคดี หัวจดหมาย และช่องลงนามของสำนักงาน</li>
+        <li>โฟลเดอร์แยกต่อคดี ทะเบียนตรวจผลประโยชน์ขัดกัน ปฏิทินรวมของสำนักงาน</li>
+        <li>บัญชีผู้ใช้สำหรับทนายและเจ้าหน้าที่ บันทึกตรวจสอบว่าใครร่าง ใครอนุมัติ และอ่านหลักฐานอะไรก่อน</li>
+        <li>เลือกเพิ่มพื้นที่ทำงานโมเดลเปิดบนบัญชีของคุณเอง สำหรับคดีที่ไม่ต้องการส่งไปเซิร์ฟเวอร์ AI ภายนอก</li>
+        <li>อบรมสองครั้ง แก้ไขให้สามสิบวัน</li>
+        <li>หลังจากนั้นเดือนละ US$500: แก้ไข อัปเดต รูปแบบศาลใหม่</li>
+      </ul>
+      <a class="btn tape" href="mailto:nan@motdang.net?subject=Cursitor%20for%20our%20firm"><span class="en">Write to us</span><span class="th">เขียนถึงเรา</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer>
+  <p class="en">Cursitor runs on Claude Code (Anthropic) on a Mac. It drafts, counts and checks; a person signs, files and serves. It is not a law firm and gives no legal advice. Sample papers on this page are fictional: <i>Doe v. Roe Holdings, LLC</i> has no real case number. Text CC BY 4.0, code MIT. A NaNoBotCo build · <a href="mailto:nan@motdang.net?subject=Cursitor">nan@motdang.net</a></p>
+  <p class="th">Cursitor ทำงานบน Claude Code (Anthropic) บนเครื่อง Mac ช่วยร่าง นับ และตรวจ ส่วนการลงนาม ยื่น และส่งเอกสารเป็นหน้าที่ของคน ไม่ใช่สำนักงานกฎหมายและไม่ให้คำแนะนำทางกฎหมาย เอกสารตัวอย่างในหน้านี้เป็นเรื่องสมมติ คดี <i>Doe v. Roe Holdings, LLC</i> ไม่มีเลขคดีจริง ข้อความ CC BY 4.0 โค้ด MIT ผลงานของ NaNoBotCo · <a href="mailto:nan@motdang.net?subject=Cursitor">nan@motdang.net</a></p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

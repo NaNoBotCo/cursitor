@@ -1,0 +1,65 @@
+{
+  "jurisdiction": "federal",
+  "year": 2026,
+  "source": "5 U.S.C. §6103(a)-(b); FRCP 6(a)(6)",
+  "verify": "the district court's own holiday calendar; FRCP 6(a)(6) also counts days declared holidays by the President or Congress",
+  "computed_by": "cursitor/holidays.py",
+  "holidays": [
+    {
+      "date": "2026-01-01",
+      "weekday": "Thu",
+      "name": "New Year's Day"
+    },
+    {
+      "date": "2026-01-19",
+      "weekday": "Mon",
+      "name": "Birthday of Martin Luther King, Jr."
+    },
+    {
+      "date": "2026-02-16",
+      "weekday": "Mon",
+      "name": "Washington's Birthday"
+    },
+    {
+      "date": "2026-05-25",
+      "weekday": "Mon",
+      "name": "Memorial Day"
+    },
+    {
+      "date": "2026-06-19",
+      "weekday": "Fri",
+      "name": "Juneteenth National Independence Day"
+    },
+    {
+      "date": "2026-07-03",
+      "weekday": "Fri",
+      "name": "Independence Day",
+      "observed_for": "2026-07-04"
+    },
+    {
+      "date": "2026-09-07",
+      "weekday": "Mon",
+      "name": "Labor Day"
+    },
+    {
+      "date": "2026-10-12",
+      "weekday": "Mon",
+      "name": "Columbus Day"
+    },
+    {
+      "date": "2026-11-11",
+      "weekday": "Wed",
+      "name": "Veterans Day"
+    },
+    {
+      "date": "2026-11-26",
+      "weekday": "Thu",
+      "name": "Thanksgiving Day"
+    },
+    {
+      "date": "2026-12-25",
+      "weekday": "Fri",
+      "name": "Christmas Day"
+    }
+  ]
+}

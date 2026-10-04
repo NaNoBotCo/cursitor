@@ -1,0 +1,19 @@
+{
+  "name": "cursitor",
+  "displayName": "Cursitor",
+  "version": "0.1.0",
+  "description": "Litigation kit: a court-day calendar engine with the arithmetic on every date, pleading paper, exhibit packages with Bates numbers, OCR, a read-the-record gate before send, muzzles, and fork cards.",
+  "author": {
+    "name": "Cursitor"
+  },
+  "keywords": [
+    "litigation",
+    "pro se",
+    "calendar",
+    "pleading",
+    "exhibits",
+    "bates",
+    "california",
+    "federal"
+  ]
+}

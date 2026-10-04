@@ -1,0 +1,16 @@
+#!/bin/sh
+# Finds the Cursitor engine and runs it with the arguments given.
+# Looks in: $CURSITOR_ROOT, the folder above this plugin (a clone of the repository), then PATH.
+for c in "${CURSITOR_ROOT:+$CURSITOR_ROOT/bin/cursitor}" "${CLAUDE_PLUGIN_ROOT:+$CLAUDE_PLUGIN_ROOT/../bin/cursitor}" \
+         "$(dirname "$0")/../../bin/cursitor"; do
+  if [ -n "$c" ] && [ -f "$c" ]; then
+    exec python3 "$c" "$@"
+  fi
+done
+if command -v cursitor >/dev/null 2>&1; then
+  exec cursitor "$@"
+fi
+echo "cursitor: engine not found. Set CURSITOR_ROOT to the cursitor folder, or add its bin/ folder to PATH." >&2
+# hooks pass through when the engine is missing; commands report it
+[ "$1" = "hook" ] && exit 0
+exit 1

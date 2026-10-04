@@ -1,0 +1,12 @@
+{
+  "name": "cursitor",
+  "description": "Cursitor litigation kit for Claude Code",
+  "owner": {"name": "Cursitor"},
+  "plugins": [
+    {
+      "name": "cursitor",
+      "source": "./plugin",
+      "description": "Court-day calendar engine, pleading paper, exhibit packages, OCR, record gate, muzzles and fork cards."
+    }
+  ]
+}

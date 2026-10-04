@@ -1,0 +1,344 @@
+{
+  "jurisdiction": "ca",
+  "name": "California superior court",
+  "holidays": "ca",
+  "court_tz": "America/Los_Angeles",
+  "counting": {
+    "forward_cite": "CCP §12",
+    "roll_cite": "CCP §12a",
+    "backward_cite": "CCP §12c",
+    "extension_mode": "before_roll",
+    "note": "Count from the day after the trigger; include the last day. A last day on a Saturday, Sunday or court holiday rolls to the next court day (§12a). A service extension is added to the unextended last day, then §12a applies to the result. Counting backward from a hearing, the day of the hearing is excluded (§12c) and a result on a non-court day moves to the court day before."
+  },
+  "methods": {
+    "personal": {
+      "label": "personal delivery",
+      "short": "personal delivery",
+      "add": 0,
+      "unit": "calendar",
+      "cite": "CCP §1011",
+      "short_cite": "§1011"
+    },
+    "mail": {
+      "label": "mail",
+      "short": "mail within California",
+      "add": 5,
+      "unit": "calendar",
+      "cite": "CCP §1013(a)",
+      "short_cite": "§1013(a)"
+    },
+    "mail_out_of_state": {
+      "label": "mail to an address outside California",
+      "short": "mail outside California",
+      "add": 10,
+      "unit": "calendar",
+      "cite": "CCP §1013(a)",
+      "short_cite": "§1013(a)"
+    },
+    "mail_out_of_us": {
+      "label": "mail to an address outside the United States",
+      "short": "mail outside the United States",
+      "add": 20,
+      "unit": "calendar",
+      "cite": "CCP §1013(a)",
+      "short_cite": "§1013(a)"
+    },
+    "overnight": {
+      "label": "overnight delivery",
+      "short": "overnight delivery",
+      "add": 2,
+      "unit": "court",
+      "cite": "CCP §1013(c)",
+      "short_cite": "§1013(c)"
+    },
+    "fax": {
+      "label": "fax",
+      "short": "fax",
+      "add": 2,
+      "unit": "court",
+      "cite": "CCP §1013(e)",
+      "short_cite": "§1013(e)"
+    },
+    "email": {
+      "label": "email",
+      "short": "e-service",
+      "add": 2,
+      "unit": "court",
+      "cite": "CCP §1010.6(a)(3)(B)",
+      "short_cite": "§1010.6(a)(3)(B)"
+    }
+  },
+  "aliases": {
+    "electronic": "email",
+    "e-service": "email",
+    "eservice": "email",
+    "efile": "email",
+    "e-mail": "email",
+    "hand": "personal",
+    "in-person": "personal",
+    "express": "overnight",
+    "fedex": "overnight",
+    "ups": "overnight",
+    "express-mail": "overnight",
+    "mail-ca": "mail",
+    "mail-out-of-state": "mail_out_of_state",
+    "mail-foreign": "mail_out_of_us"
+  },
+  "rules": [
+    {
+      "id": "ca.discovery_response",
+      "label": "Responses to interrogatories, requests for production or requests for admission",
+      "direction": "after",
+      "trigger": "service of the discovery requests",
+      "days": 30,
+      "unit": "calendar",
+      "cite": "CCP §2030.260",
+      "also": [
+        "CCP §2031.260(a) (requests for production)",
+        "CCP §2033.250(a) (requests for admission)",
+        "CCP §2016.050 (service extensions apply to discovery)"
+      ],
+      "service_extension": true
+    },
+    {
+      "id": "ca.rog_response",
+      "label": "Responses to interrogatories",
+      "direction": "after",
+      "trigger": "service of the interrogatories",
+      "days": 30,
+      "unit": "calendar",
+      "cite": "CCP §2030.260(a)",
+      "service_extension": true
+    },
+    {
+      "id": "ca.rfp_response",
+      "label": "Responses to requests for production (inspection demands)",
+      "direction": "after",
+      "trigger": "service of the demand",
+      "days": 30,
+      "unit": "calendar",
+      "cite": "CCP §2031.260(a)",
+      "service_extension": true
+    },
+    {
+      "id": "ca.rfa_response",
+      "label": "Responses to requests for admission",
+      "direction": "after",
+      "trigger": "service of the requests",
+      "days": 30,
+      "unit": "calendar",
+      "cite": "CCP §2033.250(a)",
+      "service_extension": true
+    },
+    {
+      "id": "ca.motion_compel_further",
+      "label": "Notice of motion to compel further responses (interrogatories, production, admissions)",
+      "direction": "after",
+      "trigger": "service of the verified response or supplemental response",
+      "days": 45,
+      "unit": "calendar",
+      "cite": "CCP §2030.300(c)",
+      "also": [
+        "CCP §2031.310(c) (production)",
+        "CCP §2033.290(c) (admissions)",
+        "CCP §2016.050 (service extensions apply)"
+      ],
+      "service_extension": true,
+      "notes": "The 45 days run from the verified response; an unverified response, or a later written extension agreed by the parties, changes the trigger. A deadline agreed by letter is MOVED only when the confirming writing is on disk."
+    },
+    {
+      "id": "ca.mtc_further_rog",
+      "label": "Motion to compel further: interrogatories",
+      "direction": "after",
+      "trigger": "service of the verified response",
+      "days": 45,
+      "unit": "calendar",
+      "cite": "CCP §2030.300(c)",
+      "service_extension": true
+    },
+    {
+      "id": "ca.mtc_further_rfp",
+      "label": "Motion to compel further: requests for production",
+      "direction": "after",
+      "trigger": "service of the verified response",
+      "days": 45,
+      "unit": "calendar",
+      "cite": "CCP §2031.310(c)",
+      "service_extension": true
+    },
+    {
+      "id": "ca.mtc_further_rfa",
+      "label": "Motion to compel further: requests for admission",
+      "direction": "after",
+      "trigger": "service of the verified response",
+      "days": 45,
+      "unit": "calendar",
+      "cite": "CCP §2033.290(c)",
+      "service_extension": true
+    },
+    {
+      "id": "ca.answer",
+      "label": "Answer or other response to the complaint",
+      "direction": "after",
+      "trigger": "service of the summons and complaint",
+      "days": 30,
+      "unit": "calendar",
+      "cite": "CCP §412.20(a)(3)",
+      "service_extension": false,
+      "summons_methods": {
+        "personal": {
+          "label": "personal delivery of the summons",
+          "complete_after": 0,
+          "cite": "CCP §415.10"
+        },
+        "substituted": {
+          "label": "substituted service (summons mailed)",
+          "complete_after": 10,
+          "cite": "CCP §415.20(a)",
+          "phrase": "service is complete on the 10th day after mailing"
+        },
+        "notice_ack": {
+          "label": "mail with notice and acknowledgment (acknowledgment signed)",
+          "complete_after": 0,
+          "cite": "CCP §415.30(c)",
+          "phrase": "service is complete on the day the acknowledgment is signed"
+        },
+        "mail_out_of_state": {
+          "label": "mail to a person outside California (summons mailed)",
+          "complete_after": 10,
+          "cite": "CCP §415.40",
+          "phrase": "service is complete on the 10th day after mailing"
+        }
+      },
+      "notes": "CCP §1013 does not extend time to answer a summons; the method of service sets the day service is complete."
+    },
+    {
+      "id": "ca.motion_notice",
+      "label": "Serve and file moving papers (notice of motion)",
+      "direction": "before",
+      "trigger": "hearing",
+      "days": 16,
+      "unit": "court",
+      "cite": "CCP §1005(b)",
+      "service_extension": true,
+      "methods": {
+        "personal": {
+          "label": "personal delivery",
+          "short": "personal delivery",
+          "add": 0,
+          "unit": "calendar",
+          "cite": "CCP §1005(b)",
+          "short_cite": "§1005(b)"
+        },
+        "mail": {
+          "label": "mail",
+          "short": "mail within California",
+          "add": 5,
+          "unit": "calendar",
+          "cite": "CCP §1005(b)",
+          "short_cite": "§1005(b)"
+        },
+        "mail_out_of_state": {
+          "label": "mail outside California",
+          "short": "mail outside California",
+          "add": 10,
+          "unit": "calendar",
+          "cite": "CCP §1005(b)",
+          "short_cite": "§1005(b)"
+        },
+        "mail_out_of_us": {
+          "label": "mail outside the United States",
+          "short": "mail outside the United States",
+          "add": 20,
+          "unit": "calendar",
+          "cite": "CCP §1005(b)",
+          "short_cite": "§1005(b)"
+        },
+        "overnight": {
+          "label": "overnight delivery",
+          "short": "overnight delivery",
+          "add": 2,
+          "unit": "calendar",
+          "cite": "CCP §1005(b)",
+          "short_cite": "§1005(b)"
+        },
+        "fax": {
+          "label": "fax",
+          "short": "fax",
+          "add": 2,
+          "unit": "calendar",
+          "cite": "CCP §1005(b)",
+          "short_cite": "§1005(b)"
+        },
+        "email": {
+          "label": "email",
+          "short": "e-service",
+          "add": 2,
+          "unit": "court",
+          "cite": "CCP §1010.6(a)(3)(B)",
+          "short_cite": "§1010.6(a)(3)(B)"
+        }
+      },
+      "notes": "Some motions carry their own notice period (summary judgment, CCP §437c). Local rules and the department's own rules can add requirements."
+    },
+    {
+      "id": "ca.opposition",
+      "label": "File and serve opposition",
+      "direction": "before",
+      "trigger": "hearing",
+      "days": 9,
+      "unit": "court",
+      "cite": "CCP §1005(b)",
+      "service_extension": false,
+      "notes": "CCP §1005(c): serve opposition and reply papers by a method reasonably calculated to reach the other side by the close of the next business day after filing."
+    },
+    {
+      "id": "ca.reply",
+      "label": "File and serve reply",
+      "direction": "before",
+      "trigger": "hearing",
+      "days": 5,
+      "unit": "court",
+      "cite": "CCP §1005(b)",
+      "service_extension": false,
+      "notes": "CCP §1005(c) next-business-day delivery applies."
+    },
+    {
+      "id": "ca.cmc_statement",
+      "label": "File and serve Case Management Statement (form CM-110)",
+      "direction": "before",
+      "trigger": "case management conference",
+      "days": 15,
+      "unit": "calendar",
+      "cite": "Cal. Rules of Court, rule 3.725(a)",
+      "service_extension": false,
+      "notes": "Rule 3.725 sets the filing day; the court's own notice of the conference can set other requirements."
+    }
+  ],
+  "schedules": {
+    "ca": {
+      "label": "California noticed motion, CCP §1005(b)",
+      "rows": [
+        {
+          "rule": "ca.motion_notice",
+          "prefix": "Motion: serve and file by",
+          "methods": [
+            "personal",
+            "email",
+            "overnight",
+            "mail",
+            "mail_out_of_state"
+          ]
+        },
+        {
+          "rule": "ca.opposition",
+          "prefix": "Opposition: file and serve by"
+        },
+        {
+          "rule": "ca.reply",
+          "prefix": "Reply: file and serve by"
+        }
+      ]
+    }
+  }
+}
